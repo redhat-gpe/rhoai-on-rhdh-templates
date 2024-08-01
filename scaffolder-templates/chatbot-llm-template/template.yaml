@@ -25,7 +25,7 @@ spec:
           title: Name
           type: string
           description: Unique name of the component
-          default: chatbot-ai-app
+          default: chatbot-app
           ui:field: EntityNamePicker
           maxLength: 23
         group_id:
