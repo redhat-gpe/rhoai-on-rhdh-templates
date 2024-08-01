@@ -1,0 +1,20 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: {{ .Values.app.name }}-predictor
+  namespace: {{ .Values.app.namespace }}
+  labels:
+    app: isvc.{{ .Values.app.name }}-predictor
+    component: predictor
+    opendatahub.io/dashboard: 'true'
+    serving.kserve.io/inferenceservice: {{ .Values.app.name }}-predictor
+spec:
+  to:
+    kind: Service
+    name: {{ .Values.app.name }}-predictor
+    weight: 100
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+  wildcardPolicy: None
