@@ -2,9 +2,9 @@ apiVersion: serving.kserve.io/v1beta1
 kind: InferenceService
 metadata:
   annotations:
-    openshift.io/display-name: {{ .Values.app.name }}-predictor
+    openshift.io/display-name: {{ .Values.app.name }}
     serving.kserve.io/deploymentMode: RawDeployment
-  name: {{ .Values.app.name }}-predictor
+  name: {{ .Values.app.name }}
   namespace: {{ .Values.app.namespace }}
   labels:
     opendatahub.io/dashboard: 'true'

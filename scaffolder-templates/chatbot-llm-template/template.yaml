@@ -25,7 +25,7 @@ spec:
           title: Name
           type: string
           description: Unique name of the component
-          default: my-quarkus-app
+          default: chatbot-ai-app
           ui:field: EntityNamePicker
           maxLength: 23
         group_id:
@@ -47,7 +47,7 @@ spec:
           title: Description
           type: string
           description: Help others understand what this website is for.
-          default: A cool quarkus app
+          default: A cool quarkus chatbot
     - title: Provide Image Registry Information
       required:
         - image_registry

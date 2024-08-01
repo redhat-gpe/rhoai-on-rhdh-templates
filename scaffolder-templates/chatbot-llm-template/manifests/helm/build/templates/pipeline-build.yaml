@@ -48,6 +48,8 @@ spec:
       type: string
     - name: oidc-issuer
       type: string
+    - name: maven-image
+      type: string
   tasks:
     - name: git-clone
       params:
@@ -88,6 +90,9 @@ spec:
       runAfter:
         - git-clone
 {{- end }}
+      params:
+      - name: MAVEN_IMAGE
+        value: $(params.maven-image)
       taskRef:
         kind: ClusterTask
         name: maven
