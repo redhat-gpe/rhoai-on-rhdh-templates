@@ -18,9 +18,10 @@ export class DemoChat extends LitElement {
     `;
 
     connectedCallback() {
+        var protocol = (window.location.protocol == "https:") ? "wss" : "ws";
         const chatBot = document.getElementsByTagName("chat-bot")[0];
 
-        const socket = new WebSocket("wss://" + window.location.host + "/chatbot");
+        const socket = new WebSocket(protocol + "://" + window.location.host + "/chatbot");
         socket.onmessage = function (event) {
             chatBot.sendMessage(event.data, {
                 right: false,
