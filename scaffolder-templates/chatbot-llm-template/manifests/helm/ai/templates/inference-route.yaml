@@ -11,7 +11,7 @@ metadata:
 spec:
   to:
     kind: Service
-    name: {{ .Values.app.name }}
+    name: {{ .Values.app.name }}-predictor
     weight: 100
   port:
     targetPort: 8080
