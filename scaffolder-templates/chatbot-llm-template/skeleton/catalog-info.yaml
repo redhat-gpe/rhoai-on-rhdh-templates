@@ -23,6 +23,9 @@ metadata:
     - url: https://devspaces${{values.cluster}}/#https://${{values.host}}/${{values.destination}}?che-editor=che-incubator/che-idea/latest
       title: OpenShift Dev Spaces (JetBrains IntelliJ)
       icon: web
+    - url: https://rhods-dashboard-redhat-ods-applications${{values.cluster}}/projects/${{values.component_id}}-dev-ai?section=overview
+      title: RHOAI Data Science Project
+      icon: web
 spec:
   type: service
   lifecycle: production
