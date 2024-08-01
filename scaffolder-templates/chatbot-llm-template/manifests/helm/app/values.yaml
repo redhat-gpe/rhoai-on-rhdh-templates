@@ -72,9 +72,9 @@ autoscaling:
 
 env:
   - name: QUARKUS_LANGCHAIN4J_OPENAI_BASE_URL
-    value: https://${{values.component_id}}-predictor-${{values.namespace}}-ai${{values.cluster}}/v1
+    value: https://${{values.component_id}}-${{values.namespace}}-ai${{values.cluster}}/v1
   - name: QUARKUS_LANGCHAIN4J_OPENAI_CHAT_MODEL_MODEL_NAME
-    value: ${{values.component_id}}-predictor
+    value: ${{values.component_id}}
   - name: QUARKUS_LANGCHAIN4J_OPENAI_API_KEY
     value: NOT_REQUIRED
 
