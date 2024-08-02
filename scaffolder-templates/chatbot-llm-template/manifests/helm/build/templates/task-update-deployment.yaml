@@ -68,6 +68,7 @@ spec:
       argocd app sync --async $(params.component-id)-bootstrap
     image: 'quay.io/redhat-gpte/argocd-cli:v2.8.4'
     name: sync
+    onError: continue
     env:
     - name: COMMON_PASSWORD
       valueFrom:
