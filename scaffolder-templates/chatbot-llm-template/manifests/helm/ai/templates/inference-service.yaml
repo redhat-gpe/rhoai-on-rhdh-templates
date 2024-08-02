@@ -28,7 +28,7 @@ spec:
       runtime: llm
       storage:
         key: aws-connection-{{ .Values.app.name }}
-        path: models/Mistral-7B-Instruct-v0.2/
+        path: {{ .Values.app.model }}
     tolerations:
       - effect: NoSchedule
         key: nvidia.com/gpu

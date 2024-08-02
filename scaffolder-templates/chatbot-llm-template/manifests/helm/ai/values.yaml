@@ -3,6 +3,7 @@ app:
   namespace: ${{values.namespace}}-ai
   cluster: ${{values.cluster}}
   user: ${{values.user}}
+  model: ${{values.model}}
 
 git:
   branch: main
