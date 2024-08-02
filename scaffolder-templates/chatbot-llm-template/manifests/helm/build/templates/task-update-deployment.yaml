@@ -64,6 +64,7 @@ spec:
   - script: |
       argocd login --grpc-web --username admin  --password $COMMON_PASSWORD $(params.argocd-host)
 
+      argocd app terminate-op $(params.component-id)-bootstrap || echo ''
       argocd app sync --async $(params.component-id)-bootstrap
     image: 'quay.io/redhat-gpte/argocd-cli:v2.8.4'
     name: sync
