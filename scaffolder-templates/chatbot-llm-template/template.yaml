@@ -25,7 +25,7 @@ spec:
           title: Name
           type: string
           description: Unique name of the component
-          default: my-quarkus-app
+          default: chatbot-app
           ui:field: EntityNamePicker
           maxLength: 23
         group_id:
@@ -36,7 +36,7 @@ spec:
         artifact_id:
           title: Artifact Id
           type: string
-          default: quarkus-app
+          default: chatbot-app
           description: Maven Artifact Id
         java_package_name:
           title: Java Package Name
