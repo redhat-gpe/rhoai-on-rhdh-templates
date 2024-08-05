@@ -156,6 +156,7 @@ spec:
           quay_destination: {{ '${{ parameters.image_organization}}' }}/{{ '${{ parameters.component_id }}' }}
           port: 8080
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
+          model: {{ '${{ parameters.model_id }}' }}
 
     - id: publish
       name: Publish
