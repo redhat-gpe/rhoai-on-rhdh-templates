@@ -14,7 +14,7 @@ spec:
     path: ./helm/ai
   destination:
     server: https://kubernetes.default.svc
-    namespace: ${{values.namespace}}
+    namespace: ${{values.component_id}}-ai
   syncPolicy:
     automated:
       prune: false
