@@ -11,7 +11,6 @@ metadata:
     openshift.io/description: {{ .Values.app.name }}
     openshift.io/display-name: {{ .Values.app.name }}
     backstage.io/kubernetes-id: {{ .Values.app.name }}
-  generation: 1
   labels:
     app: {{ .Values.app.name }}
     opendatahub.io/dashboard: "true"
