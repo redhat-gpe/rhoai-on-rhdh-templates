@@ -1,11 +1,11 @@
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: {{ .Values.app.name }}-anyuid
+  name: pipeline-runner-pipelines-definition-anyuid
   namespace: {{ .Values.app.namespace }}
 subjects:
   - kind: ServiceAccount
-    name: {{ .Values.app.name }}
+    name: pipeline-runner-pipelines-definition
 roleRef:
   kind: Role
   name: scc-anyuid
