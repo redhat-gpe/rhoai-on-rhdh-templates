@@ -29,7 +29,6 @@ spec:
       pipelineDBName: mlpipeline
       pvcSize: 10Gi
       username: mlpipeline
-  dspVersion: v2
   objectStorage:
     externalStorage:
       bucket: {{ .Values.app.name }}
