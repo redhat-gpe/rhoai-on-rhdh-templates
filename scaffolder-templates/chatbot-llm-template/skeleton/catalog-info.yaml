@@ -26,7 +26,7 @@ metadata:
     - url: https://rhods-dashboard-redhat-ods-applications${{values.cluster}}/projects/${{values.component_id}}-ai?section=overview
       title: RHOAI Data Science Project
       icon: web
-    - url: https://${{values.component_id}}-${{values.component_id}}-ai${{values.cluster}}/notebook/${{values.component_id}}-ai/${{values.component_id}}
+    - url: https://my-workbench-${{values.component_id}}-ai${{values.cluster}}/notebook/${{values.component_id}}-ai/my-workbench
       title: Workbench Notebook
       icon: web
 spec:
