@@ -8,6 +8,7 @@ metadata:
     opendatahub.io/template-display-name: vLLM custom
     opendatahub.io/template-name: vllm-custom
     openshift.io/display-name: llm
+    argocd.argoproj.io/sync-wave: "-3"
   name: llm
   namespace: {{ .Values.app.namespace }}
   labels:

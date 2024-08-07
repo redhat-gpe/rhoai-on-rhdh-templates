@@ -4,6 +4,7 @@ metadata:
   annotations:
     openshift.io/display-name: {{ .Values.app.model }}
     serving.kserve.io/deploymentMode: RawDeployment
+    argocd.argoproj.io/sync-wave: "-1"
   name: {{ .Values.app.model }}
   namespace: {{ .Values.app.namespace }}
   labels:

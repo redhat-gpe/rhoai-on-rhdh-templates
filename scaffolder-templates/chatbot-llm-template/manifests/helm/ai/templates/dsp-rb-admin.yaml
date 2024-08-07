@@ -1,18 +1,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  labels:
-    opendatahub.io/dashboard: "true"
-    opendatahub.io/project-sharing: "true"
-  annotations:
-    argocd.argoproj.io/sync-wave: "-4"
-  name: rhods-rb-{{ .Values.app.namespace }}
+  name: admin
   namespace: {{ .Values.app.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: '1'
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: admin
 subjects:
 - apiGroup: rbac.authorization.k8s.io
-  kind: Group
-  name: rhods-users
+  kind: User
+  name: {{ .Values.app.user }}

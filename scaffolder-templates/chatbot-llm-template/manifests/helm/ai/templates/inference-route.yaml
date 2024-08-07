@@ -8,6 +8,8 @@ metadata:
     component: predictor
     opendatahub.io/dashboard: 'true'
     serving.kserve.io/inferenceservice: {{ .Values.app.model }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   to:
     kind: Service

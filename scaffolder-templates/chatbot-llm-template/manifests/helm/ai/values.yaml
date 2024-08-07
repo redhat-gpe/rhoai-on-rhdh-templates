@@ -4,6 +4,11 @@ app:
   cluster: ${{values.cluster}}
   user: ${{values.user}}
   model: ${{values.model}}
+  workbench:
+    name: 'my-workbench'
+    image: s2i-generic-data-science-notebook:2023.2
+  dashboard:
+    route: https://rhods-dashboard-redhat-ods-applications${{values.cluster}}
 
 git:
   branch: main

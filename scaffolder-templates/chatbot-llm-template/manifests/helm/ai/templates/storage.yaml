@@ -4,7 +4,7 @@ metadata:
   annotations:
     openshift.io/description: "Storage for {{ .Values.app.name }}"
     openshift.io/display-name: {{ .Values.app.name }}
-    argocd.argoproj.io/sync-wave: "-2"
+    argocd.argoproj.io/sync-wave: "-4"
   name: {{ .Values.app.name }}
   namespace: {{ .Values.app.namespace }}
   finalizers:
