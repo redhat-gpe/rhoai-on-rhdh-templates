@@ -44,6 +44,8 @@ spec:
               pod_name=$(oc get pods --selector=app={{ .Values.app.workbench.name }} -o
               jsonpath='{.items[0].metadata.name}')
 
+              oc exec $pod_name -- /bin/bash -c "rm -rf check-confidence-llm"
+
               oc exec $pod_name -- /bin/bash -c "git clone https://github.com/treddy08/check-confidence-llm"
 
               oc exec $pod_name -- /bin/bash -c "sed -i 's/VAR_MODEL/{{ .Values.app.model }}/g' check-confidence-llm/*"
