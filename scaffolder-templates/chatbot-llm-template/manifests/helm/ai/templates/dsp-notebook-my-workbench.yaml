@@ -64,6 +64,16 @@ spec:
             - name: JUPYTER_IMAGE
               value: >-
                 image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/{{ .Values.app.workbench.image }}
+            - name: PIP_CERT
+              value: /etc/pki/tls/custom-certs/ca-bundle.crt
+            - name: REQUESTS_CA_BUNDLE
+              value: /etc/pki/tls/custom-certs/ca-bundle.crt
+            - name: SSL_CERT_FILE
+              value: /etc/pki/tls/custom-certs/ca-bundle.crt
+            - name: PIPELINES_SSL_SA_CERTS
+              value: /etc/pki/tls/custom-certs/ca-bundle.crt
+            - name: GIT_SSL_CAINFO
+              value: /etc/pki/tls/custom-certs/ca-bundle.crt
           ports:
             - containerPort: 8888
               name: notebook-port
@@ -76,6 +86,13 @@ spec:
               name: elyra-dsp-details
             - mountPath: /dev/shm
               name: shm
+            - mountPath: /etc/pki/tls/custom-certs/ca-bundle.crt
+              name: trusted-ca
+              readOnly: true
+              subPath: ca-bundle.crt
+          envFrom:
+            - secretRef:
+                name: aws-connection-shared-minio---pipelines
           image: >-
             image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/{{ .Values.app.workbench.image }}
           workingDir: /opt/app-root/src
@@ -143,10 +160,6 @@ spec:
               --logout-url={{ .Values.app.dashboard.route }}/projects/{{ .Values.app.namespace }}?notebookLogout={{ .Values.app.workbench.name }}
       enableServiceLinks: false
       serviceAccountName: {{ .Values.app.workbench.name }}
-      tolerations:
-        - effect: NoSchedule
-          key: notebooksonly
-          operator: Exists
       volumes:
         - name: {{ .Values.app.workbench.name }}
           persistentVolumeClaim:
@@ -157,6 +170,13 @@ spec:
         - emptyDir:
             medium: Memory
           name: shm
+        - configMap:
+            items:
+              - key: ca-bundle.crt
+                path: ca-bundle.crt
+            name: workbench-trusted-ca-bundle
+            optional: true
+          name: trusted-ca
         - name: oauth-config
           secret:
             defaultMode: 420

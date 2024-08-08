@@ -42,10 +42,15 @@ spec:
             - '-ec'
             - >-
               pod_name=$(oc get pods --selector=app={{ .Values.app.workbench.name }} -o
-              jsonpath='{.items[0].metadata.name}') && oc exec $pod_name -- git
-              clone https://github.com/treddy08/check-confidence-llm
+              jsonpath='{.items[0].metadata.name}')
+
+              oc exec $pod_name -- /bin/bash -c "git clone https://github.com/treddy08/check-confidence-llm"
 
               oc exec $pod_name -- /bin/bash -c "sed -i 's/VAR_MODEL/{{ .Values.app.model }}/g' check-confidence-llm/*"
 
               oc exec $pod_name -- /bin/bash -c "sed -i 's/VAR_NAMESPACE/{{ .Values.app.namespace }}/g' check-confidence-llm/*"
+
+              oc exec $pod_name -- /bin/bash -c "pip install langchain langchain_community openai"
+
+              oc exec $pod_name -- /bin/bash -c "pip install -U langchain-huggingface"
       restartPolicy: Never
