@@ -36,13 +36,13 @@ spec:
     enableExternalRoute: false
     externalStorage:
       bucket: {{ .Values.app.name }}
-      host: minio-ic-shared-minio{{ .Values.app.cluster }}
+      host: minio.ic-shared-minio.svc.cluster.local:9000
       region: us-east-1
       s3CredentialsSecret:
         accessKey: AWS_ACCESS_KEY_ID
         secretKey: AWS_SECRET_ACCESS_KEY
         secretName: aws-connection-shared-minio---pipelines
-      scheme: https
+      scheme: http
       secure: false
   persistenceAgent:
     deploy: true
