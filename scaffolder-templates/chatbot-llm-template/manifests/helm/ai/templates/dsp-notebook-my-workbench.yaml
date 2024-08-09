@@ -96,6 +96,24 @@ spec:
           image: >-
             image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/{{ .Values.app.workbench.image }}
           workingDir: /opt/app-root/src
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/bash
+                  - '-ec'
+                  - >-
+                    rm -rf check-confidence-llm
+
+                    git clone https://github.com/treddy08/check-confidence-llm
+
+                    sed -i 's/VAR_MODEL/{{ .Values.app.model }}/g' check-confidence-llm/*
+
+                    sed -i 's/VAR_NAMESPACE/{{ .Values.app.namespace }}/g' check-confidence-llm/*
+
+                    pip install langchain langchain_community openai
+
+                    pip install -U langchain-huggingface
         - resources:
             limits:
               cpu: 100m
