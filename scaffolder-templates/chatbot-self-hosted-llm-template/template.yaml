@@ -52,7 +52,7 @@ spec:
       required:
         - model_name
       properties:
-        model_id:
+        model_name:
           title: Model Name
           type: string
           enum:
