@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: chatbot-public-llm-template
-  title: Secured Chatbot for an existing Large Language Model (LLM)
-  description: Creates a secured quarkus application chatbot with configuration to access an existing LLM.
+  name: chatbot-external-llm-template
+  title: Secured Chatbot for accessing an external Large Language Model (LLM)
+  description: Creates a secured quarkus application chatbot with configuration to access an external LLM.
   tags:
     - recommended
     - java
