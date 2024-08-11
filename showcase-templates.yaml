@@ -6,4 +6,5 @@ metadata:
 spec:
   type: url
   targets:
-    - scaffolder-templates/chatbot-llm-template/template.yaml
+    - scaffolder-templates/chatbot-external-llm-template/template.yaml
+    - scaffolder-templates/chatbot-self-hosted-llm-template/template.yaml
