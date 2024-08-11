@@ -2,10 +2,10 @@ apiVersion: serving.kserve.io/v1beta1
 kind: InferenceService
 metadata:
   annotations:
-    openshift.io/display-name: {{ .Values.app.model }}
+    openshift.io/display-name: {{ .Values.app.model.name }}
     serving.kserve.io/deploymentMode: RawDeployment
     argocd.argoproj.io/sync-wave: "-1"
-  name: {{ .Values.app.model }}
+  name: {{ .Values.app.model.name }}
   namespace: {{ .Values.app.namespace }}
   labels:
     opendatahub.io/dashboard: 'true'
@@ -29,7 +29,7 @@ spec:
       runtime: llm
       storage:
         key: aws-connection-{{ .Values.app.name }}
-        path: {{ .Values.app.model }}
+        path: {{ .Values.app.model.name }}
     tolerations:
       - effect: NoSchedule
         key: nvidia.com/gpu
