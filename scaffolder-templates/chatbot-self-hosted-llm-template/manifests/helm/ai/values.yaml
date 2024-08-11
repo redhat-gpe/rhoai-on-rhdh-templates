@@ -14,4 +14,4 @@ app:
 git:
   branch: main
   repo: ${{values.source_repository}}
-  host: ${{ values.repository_host }}}
+  host: ${{ values.repository_host }}
