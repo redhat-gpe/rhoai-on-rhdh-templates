@@ -107,7 +107,7 @@ spec:
 
                     git clone https://{{ .Values.git.host}}/workbench-setup/check-confidence-external-llm.git
 
-                    sed -i 's/VAR_MODEL_ENDPOINT/{{ .Values.app.model.endpoint }}/g' check-confidence-external-llm/*
+                    sed -i 's#VAR_MODEL_ENDPOINT#{{ .Values.app.model.endpoint }}#g' check-confidence-external-llm/*
 
                     sed -i 's/VAR_MODEL_NAME/{{ .Values.app.model.name }}/g' check-confidence-external-llm/*
 
