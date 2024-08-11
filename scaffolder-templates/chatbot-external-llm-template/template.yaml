@@ -57,6 +57,7 @@ spec:
           title: Model Endpoint
           type: string
           description: A publicly accessible model endpoint
+          pattern: '^(http|https)://.*[^/]$'
         model_name:
           title: Model Name
           type: string
