@@ -105,7 +105,7 @@ spec:
                   - >-
                     rm -rf check-confidence-self-hosted-llm
 
-                    git clone https://{{ .Values.git.host}}/demo-setup/check-confidence-self-hosted-llm.git
+                    git clone https://{{ .Values.git.host}}/workbench-setup/check-confidence-self-hosted-llm.git
 
                     sed -i 's/VAR_MODEL/{{ .Values.app.model.name }}/g' check-confidence-self-hosted-llm/*
 

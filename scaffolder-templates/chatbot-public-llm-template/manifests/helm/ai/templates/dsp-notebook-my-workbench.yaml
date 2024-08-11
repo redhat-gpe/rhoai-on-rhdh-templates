@@ -105,7 +105,7 @@ spec:
                   - >-
                     rm -rf check-confidence-public-llm
 
-                    git clone https://{{ .Values.git.host}}/demo-setup/check-confidence-public-llm.git
+                    git clone https://{{ .Values.git.host}}/workbench-setup/check-confidence-public-llm.git
 
                     sed -i 's/VAR_MODEL_ENDPOINT/{{ .Values.app.model.endpoint }}/g' check-confidence-public-llm/*
 
