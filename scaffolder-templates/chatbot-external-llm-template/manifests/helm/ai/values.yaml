@@ -14,6 +14,6 @@ app:
     route: https://rhods-dashboard-redhat-ods-applications${{values.cluster}}
 
 git:
-  branch: main
+  branch: master
   repo: ${{values.source_repository}}
   host: ${{ values.repository_host }}

@@ -4,7 +4,7 @@ app:
   cluster: ${{ values.cluster }}
 
 git:
-  branch: main
+  branch: master
   repo: ${{ values.source_repository }}
   org: ${{ values.git_owner }}
   name: ${{ values.repository_name }}
