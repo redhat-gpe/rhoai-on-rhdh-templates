@@ -103,15 +103,15 @@ spec:
                   - /bin/bash
                   - '-ec'
                   - >-
-                    rm -rf check-confidence-public-llm
+                    rm -rf check-confidence-external-llm
 
-                    git clone https://{{ .Values.git.host}}/workbench-setup/check-confidence-public-llm.git
+                    git clone https://{{ .Values.git.host}}/workbench-setup/check-confidence-external-llm.git
 
-                    sed -i 's/VAR_MODEL_ENDPOINT/{{ .Values.app.model.endpoint }}/g' check-confidence-public-llm/*
+                    sed -i 's/VAR_MODEL_ENDPOINT/{{ .Values.app.model.endpoint }}/g' check-confidence-external-llm/*
 
-                    sed -i 's/VAR_MODEL_NAME/{{ .Values.app.model.name }}/g' check-confidence-public-llm/*
+                    sed -i 's/VAR_MODEL_NAME/{{ .Values.app.model.name }}/g' check-confidence-external-llm/*
 
-                    sed -i 's/VAR_MODEL_API_KEY{{ .Values.app.model.api_key }}/g' check-confidence-public-llm/*
+                    sed -i 's/VAR_MODEL_API_KEY{{ .Values.app.model.api_key }}/g' check-confidence-external-llm/*
 
                     pip install langchain langchain_community openai
 
