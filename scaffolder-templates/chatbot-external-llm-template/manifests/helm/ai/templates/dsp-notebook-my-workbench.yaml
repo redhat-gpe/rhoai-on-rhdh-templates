@@ -111,7 +111,7 @@ spec:
 
                     sed -i 's/VAR_MODEL_NAME/{{ .Values.app.model.name }}/g' check-confidence-external-llm/*
 
-                    sed -i 's/VAR_MODEL_API_KEY{{ .Values.app.model.api_key }}/g' check-confidence-external-llm/*
+                    sed -i 's/VAR_MODEL_API_KEY/{{ .Values.app.model.api_key }}/g' check-confidence-external-llm/*
 
                     pip install langchain langchain_community openai
 

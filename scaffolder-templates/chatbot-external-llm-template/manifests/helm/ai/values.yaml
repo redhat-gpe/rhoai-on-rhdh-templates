@@ -6,7 +6,7 @@ app:
   model:
     endpoint: ${{values.model_endpoint}}
     name: ${{values.model_name}}
-    api_key: ${{values.model_api_key}}
+    api_key: ${{values.model_api_key | default ("NOT_SET") }}
   workbench:
     name: 'my-workbench'
     image: pytorch:2024.1

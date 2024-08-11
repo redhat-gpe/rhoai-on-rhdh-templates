@@ -166,7 +166,7 @@ spec:
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_endpoint: {{ '${{ parameters.model_endpoint }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
-          model_api_key: {{ '${{ parameters.model_api_key | default("NOT_SET") }}' }}
+          model_api_key: {{ '${{ parameters.model_api_key }}' }}
 
     - id: publish
       name: Publish
