@@ -19,7 +19,7 @@ spec:
             name: gitlab
         - params:
             - name: filter
-              value: has(body.commits) && body.object_kind == 'push' && body.ref == '{{ .Values.git.branch }}'
+              value: has(body.commits) && body.object_kind == 'push' && body.ref == 'refs/heads/{{ .Values.git.branch }}'
             - name: overlays
               value: null
           ref:
