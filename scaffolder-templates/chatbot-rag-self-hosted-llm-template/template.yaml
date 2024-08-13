@@ -27,7 +27,7 @@ spec:
           default: chatbot-app
           ui:field: EntityNamePicker
           maxLength: 23
-    - title: Large Language Model
+    - title: Model Details
       required:
         - model_name
       properties:
@@ -36,6 +36,10 @@ spec:
           type: string
           enum:
             - parasol-instruct
+        preload_embeddings:
+          title: Preload Embeddings
+          type: boolean
+          default: false
     - title: Provide Image Registry Information
       required:
         - image_registry
