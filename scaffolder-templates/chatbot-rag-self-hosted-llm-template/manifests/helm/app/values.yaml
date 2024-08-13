@@ -1,4 +1,4 @@
-# Default values for quarkus-template.
+# Default values for -template.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -70,10 +70,32 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-env: []
-
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+
+env:
+  - name: APP_TITLE
+    value: 'Talk with your documentation'
+  - name: INFERENCE_SERVER_URL
+    value: https://${{values.model}}-${{values.component_id}}-ai${{values.cluster}}/v1
+  - name: MODEL_NAME
+    value: ${{values.model}}
+  - name: DB_CONNECTION_STRING
+    value: 'postgresql+psycopg://vectordb:vectordb@postgresql.${{values.component_id}}-ai:5432/vectordb' # notsecret
+  - name: DB_COLLECTION_NAME
+    value: 'rhoai-doc-2.6'
+  - name: MAX_NEW_TOKENS
+    value: '512'
+  - name: TOP_K
+    value: '10'
+  - name: TOP_P
+    value: '0.95'
+  - name: TYPICAL_P
+    value: '0.95'
+  - name: TEMPERATURE
+    value: '0.01'
+  - name: REPETITION_PENALTY
+    value: '1.03'

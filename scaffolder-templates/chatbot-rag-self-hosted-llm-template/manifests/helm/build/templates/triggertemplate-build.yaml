@@ -74,7 +74,7 @@ spec:
                   - ReadWriteOnce
                 resources:
                   requests:
-                    storage: 1Gi
+                    storage: 15Gi
           - emptyDir: {}
             name: maven-settings
 {{- if eq .Values.image.registry "Quay" }}

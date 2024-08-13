@@ -23,7 +23,7 @@ spec:
     - description: Secret containing the StackRox API token with CI permissions
       name: rox_api_token
       type: string
-      default: my-quarkus-app-stackrox-token
+      default: my--app-stackrox-token
     - default: >-
         gitlab-gitlab.apps.cluster-7l8hh.sandbox3007.opentlc.com
       name: git_host
@@ -32,7 +32,7 @@ spec:
         development
       name: git_owner
       type: string
-    - default: my-quarkus-app
+    - default: my--app
       description: The name of the component
       name: component_id
       type: string
@@ -110,7 +110,7 @@ spec:
 
         set +x
 
-        cd /workspace/repository/helm/app/out/quarkus-template/templates
+        cd /workspace/repository/helm/app/out/-template/templates
 
         curl -s -k -L -H "Authorization: Bearer $ROX_API_TOKEN" \
           "https://$(params.rox_central_endpoint)/api/cli/download/roxctl-linux" \

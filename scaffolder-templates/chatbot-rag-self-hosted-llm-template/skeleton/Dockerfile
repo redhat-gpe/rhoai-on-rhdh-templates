@@ -6,10 +6,6 @@ USER 1001
 
 COPY --chown=1001:0 requirements.txt ./
 
-RUN wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable-4.16/openshift-client-linux.tar.gz
-RUN tar xvf openshift-client-linux.tar.gz oc kubectl
-RUN chmod +x oc
-
 RUN pip install --no-cache-dir -r requirements.txt && \
     rm -f requirements.txt && \
     # Fix permissions to support pip in Openshift environments \

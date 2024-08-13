@@ -5,10 +5,6 @@ metadata:
 spec:
   strategy:
     type: Recreate
-    recreateParams:
-      timeoutSeconds: 600
-    resources: {}
-    activeDeadlineSeconds: 21600
   replicas: 1
   selector:
     matchLabels:
@@ -48,21 +44,29 @@ spec:
             successThreshold: 1
             failureThreshold: 3
           env:
-            - name: POSTGRESQL_USER
-              valueFrom:
-                secretKeyRef:
-                  name: postgresql
-                  key: database-user
-            - name: POSTGRESQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgresql
-                  key: database-password
-            - name: POSTGRESQL_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: postgresql
-                  key: database-name
+          - name: POSTGRESQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgresql
+                key: database-user
+          - name: POSTGRESQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgresql
+                key: database-password
+          - name: POSTGRESQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: postgresql
+                key: database-name
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/bash
+                  - '-ec'
+                  - >-
+                    psql -d vectordb -c "CREATE EXTENSION vector;" || echo "Already created!"
           securityContext:
             capabilities: {}
             privileged: false
