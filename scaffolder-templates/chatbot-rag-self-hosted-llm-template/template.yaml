@@ -175,6 +175,7 @@ spec:
           user: {{ '${{ user.entity.metadata.name }}' }}
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
+          pre_ingestion: {{ '${{ parameters.pre_ingestion }}' }}
         targetPath: ./tenant-gitops
 
     - id: publish-gitops

@@ -82,6 +82,8 @@ spec:
           volumeMounts:
             - mountPath: /opt/app-root/src
               name: {{ .Values.app.workbench.name }}
+            - mountPath: /opt/app-root/embeddings
+              name: {{ .Values.app.workbench.name }}-embeddings
             - mountPath: /opt/app-root/runtimes
               name: elyra-dsp-details
             - mountPath: /dev/shm
@@ -96,6 +98,7 @@ spec:
           image: >-
             image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/{{ .Values.app.workbench.image }}
           workingDir: /opt/app-root/src
+{{- if .Values.model.pre_ingestion }}
           lifecycle:
             postStart:
               exec:
@@ -103,17 +106,8 @@ spec:
                   - /bin/bash
                   - '-ec'
                   - >-
-                    rm -rf check-confidence-self-hosted-llm
-
-                    git clone https://{{ .Values.git.host}}/workbench-setup/check-confidence-self-hosted-llm.git
-
-                    sed -i 's/VAR_MODEL_NAME/{{ .Values.app.model.name }}/g' check-confidence-self-hosted-llm/*
-
-                    sed -i 's/VAR_NAMESPACE/{{ .Values.app.namespace }}/g' check-confidence-self-hosted-llm/*
-
-                    pip install langchain langchain_community openai
-
-                    pip install -U langchain-huggingface
+                    cp /opt/app-root/embeddings/ingest_embeddings.ipynb /opt/app-root/src
+{{- end }}
         - resources:
             limits:
               cpu: 100m
@@ -195,6 +189,9 @@ spec:
             name: workbench-trusted-ca-bundle
             optional: true
           name: trusted-ca
+        - name: {{ .Values.app.name }}-embeddings
+          configMap:
+            name: {{ .Values.app.name }}-embeddings
         - name: oauth-config
           secret:
             defaultMode: 420
