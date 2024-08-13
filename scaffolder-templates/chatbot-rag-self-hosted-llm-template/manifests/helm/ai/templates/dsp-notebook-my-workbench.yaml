@@ -98,7 +98,7 @@ spec:
           image: >-
             image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/{{ .Values.app.workbench.image }}
           workingDir: /opt/app-root/src
-{{- if .Values.model.pre_ingestion }}
+{{- if .Values.app.model.pre_ingestion }}
           lifecycle:
             postStart:
               exec:
