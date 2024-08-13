@@ -130,6 +130,7 @@ spec:
           destination: {{ '${{ parameters.repo.owner }}' }}/{{ '${{ parameters.component_id }}' }}
           quay_destination: {{ '${{ parameters.image_organization}}' }}/{{ '${{ parameters.component_id }}' }}
           port: 7860
+          verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
 
     - id: publish
@@ -168,6 +169,7 @@ spec:
           repository_host: {{ '${{ parameters.repo.host }}' }}
           deployment_name: rag-template
           user: {{ '${{ user.entity.metadata.name }}' }}
+          verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
         targetPath: ./tenant-gitops
 
