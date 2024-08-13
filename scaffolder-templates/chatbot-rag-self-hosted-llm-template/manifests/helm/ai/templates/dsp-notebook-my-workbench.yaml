@@ -83,7 +83,7 @@ spec:
             - mountPath: /opt/app-root/src
               name: {{ .Values.app.workbench.name }}
             - mountPath: /opt/app-root/embeddings
-              name: {{ .Values.app.workbench.name }}-embeddings
+              name: {{ .Values.app.name }}-embeddings
             - mountPath: /opt/app-root/runtimes
               name: elyra-dsp-details
             - mountPath: /dev/shm
