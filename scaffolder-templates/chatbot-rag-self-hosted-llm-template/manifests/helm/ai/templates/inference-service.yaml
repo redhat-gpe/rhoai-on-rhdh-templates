@@ -1,0 +1,36 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    openshift.io/display-name: {{ .Values.app.model.name }}
+    serving.kserve.io/deploymentMode: RawDeployment
+    argocd.argoproj.io/sync-wave: "-1"
+  name: {{ .Values.app.model.name }}
+  namespace: {{ .Values.app.namespace }}
+  labels:
+    opendatahub.io/dashboard: 'true'
+spec:
+  predictor:
+    maxReplicas: 1
+    minReplicas: 1
+    model:
+      modelFormat:
+        name: vLLM
+      name: ''
+      resources:
+        limits:
+          cpu: '8'
+          memory: 24Gi
+          nvidia.com/gpu: '1'
+        requests:
+          cpu: 200m
+          memory: 16Gi
+          nvidia.com/gpu: '1'
+      runtime: llm
+      storage:
+        key: aws-connection-{{ .Values.app.name }}
+        path: {{ .Values.app.model.name }}
+    tolerations:
+      - effect: NoSchedule
+        key: nvidia.com/gpu
+        operator: Exists
