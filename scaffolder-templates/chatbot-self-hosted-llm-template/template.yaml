@@ -1,14 +1,12 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: chatbot-rag-self-hosted-llm-template
-  title: Secured Document Chatbot assistant using RAG
-  description: Chat with your documentation using LLM and RAG.
+  name: chatbot-self-hosted-llm-template
+  title: Secured Chatbot with a Self-Hosted Large Language Model (LLM)
+  description: Creates a secured quarkus application chatbot provisioning and inferencing a self-hosted LLM
   tags:
     - recommended
-    - java
     - python
-    - maven
     - ai
     - rhoai
     - rhtap
@@ -27,6 +25,26 @@ spec:
           default: chatbot-app
           ui:field: EntityNamePicker
           maxLength: 23
+        group_id:
+          title: Group Id
+          type: string
+          default: redhat.janus
+          description: Maven Group Id
+        artifact_id:
+          title: Artifact Id
+          type: string
+          default: chatbot-app
+          description: Maven Artifact Id
+        java_package_name:
+          title: Java Package Name
+          default: org.redhat.janus
+          type: string
+          description: Name for the java package. eg (com.redhat.blah)
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this website is for.
+          default: A cool quarkus chatbot app
     - title: Large Language Model
       required:
         - model_name
@@ -133,7 +151,7 @@ spec:
           host: {{ '${{ parameters.repo.host }}' }}
           destination: {{ '${{ parameters.repo.owner }}' }}/{{ '${{ parameters.component_id }}' }}
           quay_destination: {{ '${{ parameters.image_organization}}' }}/{{ '${{ parameters.component_id }}' }}
-          port: 7860
+          port: 8080
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
 
@@ -171,7 +189,7 @@ spec:
           image_organization: {{ '${{ parameters.image_organization }}' }}
           image_name: {{ '${{ parameters.component_id }}' }}
           image_tag: {{ '${{ parameters.image_tag }}' }}
-          port: 7860
+          port: 8080
           repository_host: {{ '${{ parameters.repo.host }}' }}
           deployment_name: quarkus-template
           user: {{ '${{ user.entity.metadata.name }}' }}
