@@ -37,7 +37,7 @@ spec:
           enum:
             - parasol-instruct
         pre_ingestion:
-          title: Pre-Ingest Embeddings
+          title: Pre-Ingest Red Hat Openshift AI Documentation
           type: boolean
           default: false
     - title: Provide Image Registry Information
