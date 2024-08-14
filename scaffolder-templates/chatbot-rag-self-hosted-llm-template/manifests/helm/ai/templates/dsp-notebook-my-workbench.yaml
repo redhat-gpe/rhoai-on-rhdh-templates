@@ -78,7 +78,7 @@ spec:
             - containerPort: 8888
               name: notebook-port
               protocol: TCP
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           volumeMounts:
             - mountPath: /opt/app-root/src
               name: {{ .Values.app.workbench.name }}
