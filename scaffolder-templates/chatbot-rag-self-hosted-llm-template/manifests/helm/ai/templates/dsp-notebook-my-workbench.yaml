@@ -105,6 +105,8 @@ spec:
                   - /bin/bash
                   - '-ec'
                   - >-
+                    pip install langchain langchain_huggingface tqdm langchain_community pypdf
+
                     cp /opt/app-root/embeddings/ingest_embeddings.ipynb /opt/app-root/src
 {{- if .Values.app.model.pre_ingestion }}
 
