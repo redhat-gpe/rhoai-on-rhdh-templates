@@ -111,7 +111,7 @@ spec:
 {{- if .Values.app.model.pre_ingestion }}
 
                     jupyter nbconvert --to script --stdout ingest_embeddings.ipynb > ingest_embeddings.py
-                    ipython ingest_embeddings.py >> ingestion_output.log
+                    ipython ingest_embeddings.py >> ingestion_output.log &
 {{- end }}
         - resources:
             limits:
