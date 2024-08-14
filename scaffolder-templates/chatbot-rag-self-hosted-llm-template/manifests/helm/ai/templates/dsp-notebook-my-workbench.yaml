@@ -98,7 +98,6 @@ spec:
           image: >-
             image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/{{ .Values.app.workbench.image }}
           workingDir: /opt/app-root/src
-{{- if .Values.app.model.pre_ingestion }}
           lifecycle:
             postStart:
               exec:
@@ -107,6 +106,8 @@ spec:
                   - '-ec'
                   - >-
                     cp /opt/app-root/embeddings/ingest_embeddings.ipynb /opt/app-root/src
+{{- if .Values.app.model.pre_ingestion }}
+                    jupyter nbconvert --to script --stdout ingest_embeddings.ipynb | ipython >> ingestion_output.log
 {{- end }}
         - resources:
             limits:
