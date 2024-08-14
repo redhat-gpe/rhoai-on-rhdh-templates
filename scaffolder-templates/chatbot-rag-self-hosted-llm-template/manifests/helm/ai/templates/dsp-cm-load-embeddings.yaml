@@ -38,17 +38,7 @@ data:
       "metadata": {
         "tags": []
       },
-      "outputs": [
-        {
-        "name": "stdout",
-        "output_type": "stream",
-        "text": [
-          "\n",
-          "\u001b[1m[\u001b[0m\u001b[34;49mnotice\u001b[0m\u001b[1;39;49m]\u001b[0m\u001b[39;49m A new release of pip available: \u001b[0m\u001b[31;49m22.2.2\u001b[0m\u001b[39;49m -> \u001b[0m\u001b[32;49m24.2\u001b[0m\n",
-          "\u001b[1m[\u001b[0m\u001b[34;49mnotice\u001b[0m\u001b[1;39;49m]\u001b[0m\u001b[39;49m To update, run: \u001b[0m\u001b[32;49mpip install --upgrade pip\u001b[0m\n"
-        ]
-        }
-      ],
+      "outputs": [],
       "source": [
         "!pip install -q pgvector"
       ]
@@ -92,17 +82,7 @@ data:
       "metadata": {
         "tags": []
       },
-      "outputs": [
-        {
-        "name": "stderr",
-        "output_type": "stream",
-        "text": [
-          "USER_AGENT environment variable not set, consider setting it to identify your requests.\n",
-          "/tmp/ipykernel_2987/2879674956.py:5: TqdmExperimentalWarning: Using `tqdm.autonotebook.tqdm` in notebook mode. Use `tqdm.tqdm` instead to force console mode (e.g. in jupyter console)\n",
-          "  from tqdm.autonotebook import tqdm, trange\n"
-        ]
-        }
-      ],
+      "outputs": [],
       "source": [
         "from langchain.document_loaders import PyPDFDirectoryLoader, WebBaseLoader\n",
         "from langchain.text_splitter import RecursiveCharacterTextSplitter\n",
@@ -165,16 +145,7 @@ data:
       "metadata": {
         "tags": []
       },
-      "outputs": [
-        {
-        "name": "stdout",
-        "output_type": "stream",
-        "text": [
-          "['https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/release_notes/red_hat_openshift_ai_self-managed-2.6-release_notes-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/introduction_to_red_hat_openshift_ai/red_hat_openshift_ai_self-managed-2.6-introduction_to_red_hat_openshift_ai-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/getting_started_with_red_hat_openshift_ai_self-managed/red_hat_openshift_ai_self-managed-2.6-getting_started_with_red_hat_openshift_ai_self-managed-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/openshift_ai_tutorial_-_fraud_detection_example/red_hat_openshift_ai_self-managed-2.6-openshift_ai_tutorial_-_fraud_detection_example-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/developing_a_model/red_hat_openshift_ai_self-managed-2.6-developing_a_model-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/integrating_data_from_amazon_s3/red_hat_openshift_ai_self-managed-2.6-integrating_data_from_amazon_s3-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/working_on_data_science_projects/red_hat_openshift_ai_self-managed-2.6-working_on_data_science_projects-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/serving_models/red_hat_openshift_ai_self-managed-2.6-serving_models-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/monitoring_data_science_models/red_hat_openshift_ai_self-managed-2.6-monitoring_data_science_models-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/managing_users/red_hat_openshift_ai_self-managed-2.6-managing_users-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/managing_resources/red_hat_openshift_ai_self-managed-2.6-managing_resources-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/installing_and_uninstalling_openshift_ai_self-managed/red_hat_openshift_ai_self-managed-2.6-installing_and_uninstalling_openshift_ai_self-managed-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/installing_and_uninstalling_openshift_ai_self-managed_in_a_disconnected_environment/red_hat_openshift_ai_self-managed-2.6-installing_and_uninstalling_openshift_ai_self-managed_in_a_disconnected_environment-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/upgrading_openshift_ai_self-managed/red_hat_openshift_ai_self-managed-2.6-upgrading_openshift_ai_self-managed-en-us.pdf', 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/upgrading_openshift_ai_self-managed_in_a_disconnected_environment/red_hat_openshift_ai_self-managed-2.6-upgrading_openshift_ai_self-managed_in_a_disconnected_environment-en-us.pdf']\n",
-          "Skipped https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/pdf/monitoring_data_science_models/red_hat_openshift_ai_self-managed-2.6-monitoring_data_science_models-en-us.pdf\n"
-        ]
-        }
-      ],
+      "outputs": [],
       "source": [
         "import requests\n",
         "import os\n",
@@ -318,18 +289,7 @@ data:
       "metadata": {
         "tags": []
       },
-      "outputs": [
-        {
-        "data": {
-          "text/plain": [
-          "Document(metadata={'source': 'https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/2.6/html-single/openshift_ai_tutorial_-_fraud_detection_example/index', 'page': 0}, page_content='Red Hat OpenShift AI Self-Managed\\n \\n2.6\\nOpenShift AI tutorial - Fraud detection\\nexample\\nLast Updated: 2024-02-26')"
-          ]
-        },
-        "execution_count": 11,
-        "metadata": {},
-        "output_type": "execute_result"
-        }
-      ],
+     "outputs": [],
       "source": [
         "text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024,\n",
         "                                               chunk_overlap=40)\n",
@@ -375,26 +335,7 @@ data:
       "metadata": {
         "tags": []
       },
-      "outputs": [
-        {
-        "name": "stderr",
-        "output_type": "stream",
-        "text": [
-          "/opt/app-root/lib64/python3.9/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884\n",
-          "  warnings.warn(\n",
-          "huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...\n",
-          "To disable this warning, you can either:\n",
-          "\t- Avoid using `tokenizers` before the fork if possible\n",
-          "\t- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)\n",
-          "huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...\n",
-          "To disable this warning, you can either:\n",
-          "\t- Avoid using `tokenizers` before the fork if possible\n",
-          "\t- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)\n",
-          "/opt/app-root/lib64/python3.9/site-packages/langchain_community/vectorstores/pgvector.py:328: LangChainPendingDeprecationWarning: Please use JSONB instead of JSON for metadata. This change will allow for more efficient querying that involves filtering based on metadata.Please note that filtering operators have been changed when using JSOB metadata to be prefixed with a $ sign to avoid name collisions with columns. If you're using an existing database, you will need to create adb migration for your metadata column to be JSONB and update your queries to use the new operators. \n",
-          "  warn_deprecated(\n"
-        ]
-        }
-      ],
+      "outputs": [],
       "source": [
         "embeddings = HuggingFaceEmbeddings()\n",
         "\n",
@@ -460,159 +401,7 @@ data:
       "metadata": {
         "tags": []
       },
-      "outputs": [
-        {
-        "name": "stdout",
-        "output_type": "stream",
-        "text": [
-          "--------------------------------------------------------------------------------\n",
-          "Score:  0.2988101809153094\n",
-          "Apply the taints you need to your Nodes or MachineSets, for example:\n",
-          "apiVersion: machine.openshift.io/v1beta1\n",
-          "kind: MachineSet\n",
-          "metadata:\n",
-          "  ...\n",
-          "spec:\n",
-          "  replicas: 1\n",
-          "  selector:\n",
-          "    ...\n",
-          "  template:\n",
-          "    ...\n",
-          "    spec:\n",
-          "      ...\n",
-          "      taints:\n",
-          "        - key: restrictedaccess\n",
-          "          value: \"yes\"\n",
-          "          effect: NoSchedule\n",
-          "\n",
-          "\n",
-          "\n",
-          "Apply the relevant toleration to the NVIDIA Operator.\n",
-          "\n",
-          "\n",
-          "In the nvidia-gpu-operator namespace, get to the Installed Operator menu, open the NVIDIA GPU Operator settings, get to the ClusterPolicy tab, and edit the ClusterPolicy.\n",
-          "--------------------------------------------------------------------------------\n",
-          "--------------------------------------------------------------------------------\n",
-          "Score:  0.3214550422754846\n",
-          "CHAPTER 9. ENABLING GPU SUPPORT IN OPENSHIFT AI\n",
-          "Optionally, to ensure that your data scientists can use compute-heavy workloads in their models, you\n",
-          "can enable graphics processing units (GPUs) in OpenShift AI.\n",
-          "Prerequisites\n",
-          "You have logged in to your OpenShift Container Platform cluster.\n",
-          "You have the \n",
-          "cluster-admin\n",
-          " role in your OpenShift Container Platform cluster.\n",
-          "Procedure\n",
-          "1\n",
-          ". \n",
-          "To enable GPU support on an OpenShift cluster in a disconnected or airgapped environment,\n",
-          "follow the instructions here: \n",
-          "Deploy GPU Operators in a disconnected or airgapped\n",
-          "environment\n",
-          " in the NVIDIA documentation.\n",
-          "2\n",
-          ". \n",
-          "Delete the \n",
-          "migration-gpu-status\n",
-          " ConfigMap.\n",
-          "a\n",
-          ". \n",
-          "In the OpenShift Container Platform web console, switch to the \n",
-          "Administrator\n",
-          " perspective.\n",
-          "b\n",
-          ". \n",
-          "Set the \n",
-          "Project\n",
-          " to \n",
-          "All Projects\n",
-          " or \n",
-          "redhat-ods-applications\n",
-          " to ensure you can see the\n",
-          "appropriate ConfigMap.\n",
-          "c\n",
-          ". \n",
-          "Search for the \n",
-          "migration-gpu-status\n",
-          " ConfigMap.\n",
-          "d\n",
-          ". \n",
-          "Click the action menu (\n",
-          "⋮\n",
-          ") and select \n",
-          "Delete ConfigMap\n",
-          " from the list.\n",
-          "The \n",
-          "Delete ConfigMap\n",
-          "--------------------------------------------------------------------------------\n",
-          "--------------------------------------------------------------------------------\n",
-          "Score:  0.3263350524406148\n",
-          "But don't worry, OpenShift AI and Open Data Hub take care of this part for you when you launch notebooks, workbenches, model servers, or pipeline runtimes!\n",
-          "Installation\n",
-          "Here is the documentation you can follow:\n",
-          "\n",
-          "OpenShift AI documentation\n",
-          "NVIDIA documentation (more detailed)\n",
-          "\n",
-          "Advanced configuration\n",
-          "Working with taints\n",
-          "In many cases, you will want to restrict access to GPUs, or be able to provide choice between different types of GPUs: simply stating \"I want a GPU\" is not enough. Also, if you want to make sure that only the Pods requiring GPUs end up on GPU-enabled nodes (and not other Pods that just end up being there at random because that's how Kubernetes works...), you're at the right place!\n",
-          "The only supported method at the moment to achieve this is to taint nodes, then apply tolerations on the Pods depending on where you want them scheduled. If you don't pay close attention though when applying taints on Nodes, you may end up with the NVIDIA drivers not installed on those nodes...\n",
-          "In this case you must:\n",
-          "--------------------------------------------------------------------------------\n",
-          "--------------------------------------------------------------------------------\n",
-          "Score:  0.3432605266571045\n",
-          "CHAPTER 9. ENABLING GPU SUPPORT IN OPENSHIFT AI\n",
-          "Optionally, to ensure that your data scientists can use compute-heavy workloads in their models, you\n",
-          "can enable graphics processing units (GPUs) in OpenShift AI.\n",
-          "IMPORTANT\n",
-          "If you are using OpenShift AI in a disconnected self-managed environment, see \n",
-          "Enabling\n",
-          "GPU support in OpenShift AI\n",
-          " instead.\n",
-          "Prerequisites\n",
-          "You have logged in to your OpenShift Container Platform cluster.\n",
-          "You have the \n",
-          "cluster-admin\n",
-          " role in your OpenShift Container Platform cluster.\n",
-          "Procedure\n",
-          "1\n",
-          ". \n",
-          "To enable GPU support on an OpenShift cluster, follow the instructions here: \n",
-          "NVIDIA GPU\n",
-          "Operator on Red Hat OpenShift Container Platform\n",
-          " in the NVIDIA documentation.\n",
-          "2\n",
-          ". \n",
-          "Delete the \n",
-          "migration-gpu-status\n",
-          " ConfigMap.\n",
-          "a\n",
-          ". \n",
-          "In the OpenShift Container Platform web console, switch to the \n",
-          "Administrator\n",
-          " perspective.\n",
-          "b\n",
-          ". \n",
-          "Set the \n",
-          "Project\n",
-          " to \n",
-          "All Projects\n",
-          " or \n",
-          "redhat-ods-applications\n",
-          " to ensure you can see the\n",
-          "appropriate ConfigMap.\n",
-          "c\n",
-          ". \n",
-          "Search for the \n",
-          "migration-gpu-status\n",
-          " ConfigMap.\n",
-          "d\n",
-          ".\n",
-          "--------------------------------------------------------------------------------\n"
-        ]
-        }
-      ],
+      "outputs": [],
       "source": [
         "for doc, score in docs_with_score:\n",
         "    print(\"-\" * 80)\n",
