@@ -159,6 +159,7 @@ spec:
         copyWithoutTemplating: []
         values:
           component_id: {{ '${{ parameters.component_id }}' }}
+          destination: https://{{ '${{ parameters.repo.host }}' }}/{{ '${{ parameters.repo.owner }}' }}/{{ '${{parameters.component_id}}' }}-gitops.git
           source_repository: https://{{ '${{ parameters.repo.host }}' }}/{{ '${{ parameters.repo.owner }}' }}/{{ '${{parameters.component_id}}' }}.git
           repository_name: {{ '${{parameters.component_id}}' }}
           git_owner: {{ '${{ parameters.repo.owner }}' }}
