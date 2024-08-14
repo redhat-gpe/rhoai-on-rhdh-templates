@@ -80,9 +80,9 @@ env:
   - name: APP_TITLE
     value: 'Talk with your documentation'
   - name: INFERENCE_SERVER_URL
-    value: https://${{values.model}}-${{values.component_id}}-ai${{values.cluster}}/v1
+    value: https://${{values.model_name}}-${{values.component_id}}-ai${{values.cluster}}/v1
   - name: MODEL_NAME
-    value: ${{values.model}}
+    value: ${{values.model_name}}
   - name: DB_CONNECTION_STRING
     value: 'postgresql+psycopg://vectordb:vectordb@postgresql.${{values.component_id}}-ai:5432/vectordb' # notsecret
   - name: DB_COLLECTION_NAME
