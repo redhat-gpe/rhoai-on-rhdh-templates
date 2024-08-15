@@ -34,6 +34,8 @@ spec:
   owner: ${{values.owner | dump}}
   providesApis:
     - ${{values.component_id | dump}}
+  consumesApis:
+    - ${{values.component_id}}-${{values.model_name}}-api
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
