@@ -33,9 +33,10 @@ spec:
     name: insecure-skip-tls-verify
     type: string
   - description: |
-      Digest of the image
-    name: image_digest
+      Image tag
+    name: image_tag
     type: string
+    default: latest
   results:
   - description: Output of `roxctl image check`
     name: SCAN_OUTPUT
@@ -51,7 +52,7 @@ spec:
     script: |
       #!/usr/bin/env bash
       set +x
-      IMAGE=$(params.image)@$(params.image_digest)
+      IMAGE=$(params.image)@$(params.image_tag)
       curl -s -k -L -H "Authorization: Bearer $ROX_API_TOKEN" \
         "https://$(params.rox_central_endpoint)/api/cli/download/roxctl-linux" \
         --output ./roxctl  \

@@ -129,8 +129,8 @@ spec:
         value: {{ include "sha-image.dev-url" . }}
       - name: insecure-skip-tls-verify
         value: "true"
-      - name: image_digest
-        value: $(tasks.build-sign-image.results.IMAGE_DIGEST)
+      - name: image_tag
+        value: latest
       runAfter:
       - upload-sbom-to-tpa
       - upload-sbom-to-cyclonedx-repo
@@ -150,8 +150,8 @@ spec:
         value: {{ include "sha-image.dev-url" . }}
       - name: insecure-skip-tls-verify
         value: "true"
-      - name: image_digest
-        value: $(tasks.build-sign-image.results.IMAGE_DIGEST)
+      - name: image_tag
+        value: latest
       runAfter:
       - upload-sbom-to-tpa
       - upload-sbom-to-cyclonedx-repo
