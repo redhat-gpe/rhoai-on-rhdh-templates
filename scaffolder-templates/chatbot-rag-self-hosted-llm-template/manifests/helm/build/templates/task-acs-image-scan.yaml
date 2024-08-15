@@ -52,7 +52,7 @@ spec:
     script: |
       #!/usr/bin/env bash
       set +x
-      IMAGE=$(params.image)@$(params.image_tag)
+      IMAGE=$(params.image):$(params.image_tag)
       curl -s -k -L -H "Authorization: Bearer $ROX_API_TOKEN" \
         "https://$(params.rox_central_endpoint)/api/cli/download/roxctl-linux" \
         --output ./roxctl  \
