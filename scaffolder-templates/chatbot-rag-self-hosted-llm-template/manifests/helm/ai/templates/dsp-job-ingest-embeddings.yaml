@@ -22,7 +22,7 @@ spec:
               while true; do
                 READY_REPLICAS=$(oc get statefulset {{ .Values.app.workbench.name }} -o json | jq -r '.status.readyReplicas')
                 echo "READY_REPLICAS=$READY_REPLICAS"
-                if [ ! -z "$READY_REPLICAS" ]  && [ "${READY_REPLICAS}" != "0" ]; then
+                if [ ! -z "$READY_REPLICAS" ]  && [ "${READY_REPLICAS}" != "0" ] && [ "${READY_REPLICAS}" != "null" ]; then
                   break
                 fi
                 sleep 2
