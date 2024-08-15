@@ -100,6 +100,8 @@ spec:
       params:
       - name: COMPONENT_ID
         value: $(params.component-id)
+      - name: IMAGE
+        value: $(params.output-image)
       workspaces:
       - name: sboms
         workspace: source-folder
