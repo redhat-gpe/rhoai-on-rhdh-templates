@@ -1,0 +1,48 @@
+kind: Job
+apiVersion: batch/v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '4'
+  name: ingest-embeddings
+  namespace: {{ .Values.app.namespace }}
+spec:
+  manualSelector: false
+  backoffLimit: 4
+  completions: 1
+  template:
+    spec:
+      containers:
+        - name: ingest-embeddings
+          image: registry.redhat.io/openshift4/ose-tools-rhel9@sha256:8037187950e7374a9c9bec4996033c9b24ce374920ef29047d4f63b4c20f3e6b
+          command:
+            - /bin/bash
+          args:
+            - '-ec'
+            - >-
+              while true; do
+                READY_REPLICAS=$(oc get statefulset {{ .Values.app.workbench.name }} -o json | jq -r '.status.readyReplicas')
+                echo "READY_REPLICAS=$READY_REPLICAS"
+                if [ ! -z "$READY_REPLICAS" ]  && [ "${READY_REPLICAS}" != "0" ]; then
+                  break
+                fi
+                sleep 2
+              done
+
+              POD_NAME=$(oc get pods --selector=app={{ .Values.app.workbench.name }} -o jsonpath='{.items[0].metadata.name}')
+
+              oc exec $POD_NAME -- /bin/bash -c "ipython ingest-embeddings.py"
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Never
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: demo-setup
+      serviceAccount: demo-setup
+      securityContext: {}
+      schedulerName: default-scheduler
+  suspend: false
+  parallelism: 1
+  podReplacementPolicy: TerminatingOrFailed
+  completionMode: NonIndexed

@@ -3,7 +3,7 @@ metadata:
   name: {{ .Values.app.name }}-embeddings
 apiVersion: v1
 data:
-  ingest_embeddings.ipynb: |
+  ingest-embeddings.ipynb: |
     {
     "cells": [
       {
@@ -61,7 +61,7 @@ data:
       "outputs": [],
       "source": [
         "product_version = 2.6\n",
-        "CONNECTION_STRING = \"postgresql+psycopg://vectordb:vectordb@postgresql.{{ .Values.app.namespace }}.svc.cluster.local:5432/vectordb\"\n",
+        "CONNECTION_STRING = \"postgresql+psycopg://vectordb:vectordb@postgresql.{{ .Values.app.namespace }}.svc.cluster.local:5432/vectordb\"\n", #notsecret
         "COLLECTION_NAME = f\"rhoai-doc-{product_version}\""
       ]
       },
