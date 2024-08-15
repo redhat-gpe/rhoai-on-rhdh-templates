@@ -108,12 +108,10 @@ spec:
                     pip install langchain langchain_huggingface tqdm langchain_community pypdf
 
                     cp /opt/app-root/embeddings/ingest_embeddings.ipynb /opt/app-root/src
-{{- if .Values.app.model.pre_ingestion }}
 
                     jupyter nbconvert --to python ingest_embeddings.ipynb
 
                     ipython ingest_embeddings.py >> ingestion_output.log &
-{{- end }}
         - resources:
             limits:
               cpu: 100m
