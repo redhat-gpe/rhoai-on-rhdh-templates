@@ -197,7 +197,7 @@ spec:
       shopt -s nullglob
       sboms_to_upload=("$WORKDIR"/*.json)
 
-      if [[ "${#sboms_to_upload[@]}" -eq 0 ]]; then
+      {% raw %}if [[ "${#sboms_to_upload[@]}" -eq 0 ]]; then{% endraw %}
         echo "No SBOMs to upload"
         exit 0
       fi
