@@ -141,7 +141,7 @@ commands:
   - id: init-gitsign
     exec:
       label: "Initialize gitsign"
-      component: development-tooling
+      component: py
       workingDir: /home/user
       commandLine: |
         git config --global user.email '${{values.owner}}@opentlc.com'
