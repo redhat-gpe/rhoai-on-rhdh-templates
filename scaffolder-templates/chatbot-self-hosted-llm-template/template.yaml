@@ -61,6 +61,7 @@ spec:
         image_registry:
           title: Image Registry
           type: string
+          default: Quay
           enum:
             - Openshift
             - Quay
