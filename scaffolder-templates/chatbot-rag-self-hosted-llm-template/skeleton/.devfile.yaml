@@ -13,14 +13,6 @@ metadata:
   language: Python
   provider: Red Hat
   version: 2.2.0
-starterProjects:
-  - name: flask-example
-    description:
-      'Flask is a web framework, it’s a Python module that lets you develop web applications easily.
-      It’s has a small and easy-to-extend core: it’s a microframework that doesn’t include an ORM (Object Relational Manager) or such features.'
-    git:
-      remotes:
-        origin: https://github.com/devfile-samples/python-ex
 components:
   - name: py
     container:
