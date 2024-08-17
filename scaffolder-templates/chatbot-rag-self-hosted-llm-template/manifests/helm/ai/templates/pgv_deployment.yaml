@@ -68,7 +68,17 @@ spec:
                   - /bin/bash
                   - '-ec'
                   - >-
-                    until pg_isready; do sleep 2; done; psql -d vectordb -c "CREATE EXTENSION vector;" > /dev/null 2>&1 || echo ''
+                    while true; do
+                      COUNT=$(psql -d vectordb -c "select count(1) from pg_extension where extname = 'vector'" | sed '3q;d' | xargs || echo '');
+                      if [ -z "$COUNT" ]; then
+                        sleep 2;
+                        continue;
+                      elif [ "${COUNT}" == "1" ]; then
+                        break;
+                      else
+                        psql -d vectordb -c "CREATE EXTENSION vector;";
+                      fi
+                    done
           securityContext:
             capabilities: {}
             privileged: false
