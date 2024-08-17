@@ -1,8 +1,33 @@
 kind: ConfigMap
 metadata:
   name: {{ .Values.app.name }}-embeddings
+  annotations:
+    argocd.argoproj.io/sync-wave: "-4"
 apiVersion: v1
 data:
+  initialize-embeddings.sh: |
+    pip install langchain langchain_huggingface tqdm langchain_community pypdf
+    cp /opt/app-root/embeddings/ingest-embeddings.ipynb /opt/app-root/src
+    jupyter nbconvert --to python ingest-embeddings.ipynb
+    ipython ingest-embeddings.py
+  create-extension.sh: >-
+    #!/bin/bash
+
+    while true; do
+      if [ ! pg_ready ]; then
+        sleep 2
+        continue;
+      fi
+      COUNT=$(psql -d vectordb -c "select count(1) from pg_extension where extname = 'vector'" | sed '3q;d' | xargs || echo '');
+      if [ -z "$COUNT" ]; then
+        sleep 2;
+        continue;
+      elif [ "${COUNT}" == "1" ]; then
+        break;
+      else
+        psql -d vectordb -c "CREATE EXTENSION vector;";
+      fi
+    done
   ingest-embeddings.ipynb: |
     {
     "cells": [
