@@ -11,7 +11,7 @@ app:
   dashboard:
     route: https://rhods-dashboard-redhat-ods-applications${{values.cluster}}
   documentation:
-    version: ${{values.rhoai_doc_version}}
+    version: "${{values.rhoai_doc_version}}"
 
 git:
   branch: master
