@@ -159,7 +159,7 @@ data:
         "    \"installing_and_uninstalling_openshift_ai_self-managed\",\n",
         "    \"installing_and_uninstalling_openshift_ai_self-managed_in_a_disconnected_environment\",\n",
         "    \"upgrading_openshift_ai_self-managed\",\n",
-        "    \"upgrading_openshift_ai_self-managed_in_a_disconnected_environment\",\n",
+        "    \"upgrading_openshift_ai_self-managed_in_a_disconnected_environment\",   \n",
         "]\n",
         "\n",
         "pdfs = [f\"https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/{product_version}/pdf/{doc}/red_hat_openshift_ai_self-managed-{product_version}-{doc}-en-us.pdf\" for doc in documents]\n",
