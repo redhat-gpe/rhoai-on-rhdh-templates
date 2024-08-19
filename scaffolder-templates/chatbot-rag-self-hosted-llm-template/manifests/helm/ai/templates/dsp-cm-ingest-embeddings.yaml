@@ -85,7 +85,7 @@ data:
       },
       "outputs": [],
       "source": [
-        "product_version = 2.11\n",
+        "product_version = {{ .Values.app.documentation.version }}\n",
         "CONNECTION_STRING = \"postgresql+psycopg://vectordb:vectordb@postgresql.{{ .Values.app.namespace }}.svc.cluster.local:5432/vectordb\"\n",
         "COLLECTION_NAME = f\"rhoai-doc-{product_version}\""
       ]
