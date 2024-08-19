@@ -41,12 +41,12 @@ spec:
           title: Red Hat Openshift AI Documentation to Ingest
           type: string
           enum:
-            - 2.6
-            - 2.7
-            - 2.8
-            - 2.9
-            - 2.10
-            - 2.11
+            - "2.6"
+            - "2.7"
+            - "2.8"
+            - "2.9"
+            - "2.10"
+            - "2.11"
     - title: Provide Image Registry Information
       required:
         - image_registry
