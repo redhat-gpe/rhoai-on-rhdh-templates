@@ -163,7 +163,7 @@ data:
         "]\n",
         "\n",
         "pdfs = [f\"https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/{product_version}/pdf/{doc}/red_hat_openshift_ai_self-managed-{product_version}-{doc}-en-us.pdf\" for doc in documents]\n",
-        "pdfs_to_urls = {f\"red_hat_openshift_ai_self-managed-{product_version}-{doc}-en-us\": f\"https://docs.redhat.com/en-us/documentation/red_hat_openshift_ai_self-managed/{product_version}/html-single/{doc}/index\" for doc in documents}"
+        "pdfs_to_urls = {f\"red_hat_openshift_ai_self-managed-{product_version}-{doc}-en-us\": f\"https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/{product_version}/html/{doc}/index\" for doc in documents}"
       ]
       },
       {
