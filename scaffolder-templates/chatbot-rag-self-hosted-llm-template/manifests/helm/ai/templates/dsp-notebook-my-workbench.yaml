@@ -98,18 +98,6 @@ spec:
           image: >-
             image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/{{ .Values.app.workbench.image }}
           workingDir: /opt/app-root/src
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - /bin/bash
-                  - '-ec'
-                  - >-
-                    pip install langchain langchain_huggingface tqdm langchain_community pypdf
-
-                    cp /opt/app-root/embeddings/ingest-embeddings.ipynb /opt/app-root/src
-
-                    jupyter nbconvert --to python ingest-embeddings.ipynb
         - resources:
             limits:
               cpu: 100m
@@ -194,6 +182,7 @@ spec:
         - name: {{ .Values.app.name }}-embeddings
           configMap:
             name: {{ .Values.app.name }}-embeddings
+            defaultMode: 0775
         - name: oauth-config
           secret:
             defaultMode: 420

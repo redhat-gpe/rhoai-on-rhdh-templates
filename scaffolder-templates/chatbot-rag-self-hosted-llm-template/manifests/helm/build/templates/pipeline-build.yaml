@@ -63,7 +63,33 @@ spec:
       workspaces:
         - name: output
           workspace: source-folder
+{{- if eq .Values.git.verify_commits "enabled" }}
+    - name: verify-commit
+      params:
+      - name: certificate-identity
+        value: $(params.certificate-identity)
+      - name: oidc-issuer
+        value: $(params.oidc-issuer)
+      - name: rekor-url
+        value: $(params.rekor-url)
+      - name: tuf-mirror
+        value: $(params.tuf-mirror)
+      runAfter:
+        - git-clone
+      taskRef:
+        kind: Task
+        name: verify-commit
+      workspaces:
+        - name: repository
+          workspace: source-folder
     - name: scan-source
+      runAfter:
+        - verify-commit
+{{- else }}
+    - name: scan-source
+      runAfter:
+        - git-clone
+{{- end }}
       params:
       - name: sonarqubeHostUrl
         value: $(params.sonarqube-host-url)
@@ -71,8 +97,6 @@ spec:
         value: $(params.sonarqube-project-key)
       - name: sonarqubeProjectSecret
         value: $(params.sonarqube-project-secret)
-      runAfter:
-      - git-clone
       taskRef:
         kind: Task
         name: scan-code
@@ -129,8 +153,8 @@ spec:
         value: {{ include "sha-image.dev-url" . }}
       - name: insecure-skip-tls-verify
         value: "true"
-      - name: image_tag
-        value: latest
+      - name: image_digest
+        value: $(tasks.build-sign-image.results.IMAGE_DIGEST)
       runAfter:
       - upload-sbom-to-tpa
       - upload-sbom-to-cyclonedx-repo
@@ -150,8 +174,8 @@ spec:
         value: {{ include "sha-image.dev-url" . }}
       - name: insecure-skip-tls-verify
         value: "true"
-      - name: image_tag
-        value: latest
+      - name: image_digest
+        value: $(tasks.build-sign-image.results.IMAGE_DIGEST)
       runAfter:
       - upload-sbom-to-tpa
       - upload-sbom-to-cyclonedx-repo

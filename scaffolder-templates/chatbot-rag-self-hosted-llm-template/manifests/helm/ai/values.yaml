@@ -10,6 +10,8 @@ app:
     image: pytorch:2024.1
   dashboard:
     route: https://rhods-dashboard-redhat-ods-applications${{values.cluster}}
+  documentation:
+    version: "${{values.rhoai_doc_version}}"
 
 git:
   branch: master

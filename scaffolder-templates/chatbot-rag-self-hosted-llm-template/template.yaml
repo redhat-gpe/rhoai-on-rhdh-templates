@@ -30,12 +30,23 @@ spec:
     - title: Model Details
       required:
         - model_name
+        - rhoai_doc_version
       properties:
         model_name:
           title: Model Name
           type: string
           enum:
             - parasol-instruct
+        rhoai_doc_version:
+          title: Red Hat Openshift AI Documentation to Ingest
+          type: string
+          enum:
+            - "2.6"
+            - "2.7"
+            - "2.8"
+            - "2.9"
+            - "2.10"
+            - "2.11"
     - title: Provide Image Registry Information
       required:
         - image_registry
@@ -43,6 +54,7 @@ spec:
         image_registry:
           title: Image Registry
           type: string
+          default: Quay
           enum:
             - Openshift
             - Quay
@@ -132,6 +144,7 @@ spec:
           port: 7860
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
+          rhoai_doc_version: {{ '${{ parameters.rhoai_doc_version }}' }}
 
     - id: publish
       name: Publish
@@ -172,6 +185,7 @@ spec:
           user: {{ '${{ user.entity.metadata.name }}' }}
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
+          rhoai_doc_version: {{ '${{ parameters.rhoai_doc_version }}' }}
         targetPath: ./tenant-gitops
 
     - id: publish-gitops

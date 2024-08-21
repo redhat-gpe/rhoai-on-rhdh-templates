@@ -19,6 +19,10 @@ spec:
           args:
             - '-ec'
             - >-
+              POD_NAME=$(oc get pods --selector=app=postgresql -o jsonpath='{.items[0].metadata.name}')
+
+              oc exec $POD_NAME -- /bin/bash -c "/tmp/scripts/create-extension.sh"
+
               while true; do
                 READY_REPLICAS=$(oc get statefulset {{ .Values.app.workbench.name }} -o json | jq -r '.status.readyReplicas')
                 echo "READY_REPLICAS=$READY_REPLICAS"
@@ -30,7 +34,7 @@ spec:
 
               POD_NAME=$(oc get pods --selector=app={{ .Values.app.workbench.name }} -o jsonpath='{.items[0].metadata.name}')
 
-              oc exec $POD_NAME -- /bin/bash -c "ipython ingest-embeddings.py"
+              oc exec $POD_NAME -- /bin/bash -c "/opt/app-root/embeddings/initialize-embeddings.sh"
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File

@@ -77,8 +77,6 @@ tolerations: []
 affinity: {}
 
 env:
-  - name: APP_TITLE
-    value: 'Talk with your documentation'
   - name: INFERENCE_SERVER_URL
     value: http://${{values.model_name}}-predictor.${{values.component_id}}-ai.svc.cluster.local:8080/v1
   - name: MODEL_NAME
@@ -86,7 +84,7 @@ env:
   - name: DB_CONNECTION_STRING
     value: 'postgresql+psycopg://vectordb:vectordb@postgresql.${{values.component_id}}-ai:5432/vectordb'
   - name: DB_COLLECTION_NAME
-    value: 'rhoai-doc-2.6'
+    value: 'rhoai-doc-${{values.rhoai_doc_version}}'
   - name: MAX_NEW_TOKENS
     value: '512'
   - name: TOP_K

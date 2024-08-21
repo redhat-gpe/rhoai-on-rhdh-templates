@@ -17,9 +17,13 @@ spec:
         app: postgresql
     spec:
       volumes:
-        - name: postgresql-data
-          persistentVolumeClaim:
-            claimName: postgresql
+      - name: postgresql-data
+        persistentVolumeClaim:
+          claimName: postgresql
+      - name: {{ .Values.app.name }}-embeddings
+        configMap:
+          name: {{ .Values.app.name }}-embeddings
+          defaultMode: 0775
       containers:
         - resources:
             limits:
@@ -61,14 +65,6 @@ spec:
               secretKeyRef:
                 name: postgresql
                 key: database-name
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - /bin/bash
-                  - '-ec'
-                  - >-
-                    until pg_isready; do sleep 2; done; psql -d vectordb -c "CREATE EXTENSION vector;" > /dev/null 2>&1 || echo ''
           securityContext:
             capabilities: {}
             privileged: false
@@ -79,6 +75,8 @@ spec:
           volumeMounts:
             - name: postgresql-data
               mountPath: /var/lib/pgsql/data
+            - mountPath: /tmp/scripts
+              name: {{ .Values.app.name }}-embeddings
           terminationMessagePolicy: File
           image: 'quay.io/rh-aiservices-bu/postgresql-15-pgvector-c9s:latest'
       restartPolicy: Always
