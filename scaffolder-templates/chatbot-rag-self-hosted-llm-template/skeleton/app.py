@@ -20,7 +20,7 @@ load_dotenv()
 
 # Parameters
 
-APP_TITLE = os.getenv('APP_TITLE', 'Talk with your documentation')
+APP_TITLE = 'Talk with your documentation'
 
 MODEL_NAME = os.getenv('MODEL_NAME', "mistralai/Mistral-7B-Instruct-v0.2")
 MAX_TOKENS = int(os.getenv('MAX_TOKENS', 1024))
