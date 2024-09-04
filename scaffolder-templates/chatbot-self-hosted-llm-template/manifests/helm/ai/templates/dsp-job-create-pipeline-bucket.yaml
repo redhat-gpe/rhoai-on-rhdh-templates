@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: create-bucket
-          image: 'image-registry.openshift-image-registry.svc:5000/ic-shared-minio/s2i-generic-data-science-notebook:1.2'
+          image: 'quay.io/modh/odh-generic-data-science-notebook:v1-2023a-20231030-3e71410'
           command:
             - /bin/bash
           args:
