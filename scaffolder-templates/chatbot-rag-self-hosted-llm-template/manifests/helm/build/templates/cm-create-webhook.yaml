@@ -40,6 +40,7 @@ data:
               tag_push_events: true
               releases_events: true
               token: '{{ "{{" }} webhook_secret {{ "}}" }}'
+              enable_ssl_verification: false
             headers:
               PRIVATE-TOKEN: '{{ "{{" }} git_token {{ "}}" }}'
             validate_certs: false
