@@ -82,26 +82,14 @@ spec:
       workspaces:
         - name: repository
           workspace: source-folder
-    - name: package
+    - name: scan-source
       runAfter:
         - verify-commit
 {{- else }}
-    - name: package
+    - name: scan-source
       runAfter:
         - git-clone
 {{- end }}
-      params:
-      - name: MAVEN_IMAGE
-        value: $(params.maven-image)
-      taskRef:
-        kind: ClusterTask
-        name: maven
-      workspaces:
-        - name: source
-          workspace: source-folder
-        - name: maven-settings
-          workspace: maven-settings
-    - name: scan-source
       params:
       - name: sonarqubeHostUrl
         value: $(params.sonarqube-host-url)
@@ -109,8 +97,6 @@ spec:
         value: $(params.sonarqube-project-key)
       - name: sonarqubeProjectSecret
         value: $(params.sonarqube-project-secret)
-      runAfter:
-      - package
       taskRef:
         kind: Task
         name: scan-code
@@ -138,6 +124,8 @@ spec:
       params:
       - name: COMPONENT_ID
         value: $(params.component-id)
+      - name: IMAGE
+        value: $(params.output-image)
       workspaces:
       - name: sboms
         workspace: source-folder
