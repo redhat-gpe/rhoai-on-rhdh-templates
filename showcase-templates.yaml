@@ -9,3 +9,4 @@ spec:
     - scaffolder-templates/chatbot-external-llm-template/template.yaml
     - scaffolder-templates/chatbot-self-hosted-llm-template/template.yaml
     - scaffolder-templates/chatbot-rag-self-hosted-llm-template/template.yaml
+    - scaffolder-templates/chatbot-rag-private-docs-template/template.yaml
