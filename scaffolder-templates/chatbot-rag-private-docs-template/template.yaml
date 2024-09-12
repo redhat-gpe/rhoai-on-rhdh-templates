@@ -134,7 +134,6 @@ spec:
           - .github/workflows/*
         values:
           component_id: {{ '${{ parameters.component_id }}' }}
-          description: {{ '${{ parameters.description }}' }}
           namespace: {{ '${{ parameters.component_id }}' }}-dev
           owner: {{ '${{ user.entity.metadata.name }}' }}
           cluster: {{ cluster_subdomain }}

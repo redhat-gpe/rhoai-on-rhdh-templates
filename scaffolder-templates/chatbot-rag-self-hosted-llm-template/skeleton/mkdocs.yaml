@@ -1,5 +1,7 @@
 site_name: ${{values.component_id}}
+{%- if values.description %}
 site_description: ${{values.description}}
+{%- endif %}
 repo_url: https://${{values.host}}/${{values.destination}}
 edit_uri: edit/master/docs
 
