@@ -6,11 +6,11 @@ css = '''
 .chat-message.user {
     align: right,
     color: #000000;
-    background-color: #99FFFF;
+    background-color: #FFEAEB;
 }
 .chat-message.bot {
     color: #000000;
-    background-color: #D3D3D3;
+    background-color: #FAA0A0;
 }
 .chat-message .avatar {
   width: 20%;
