@@ -5,10 +5,12 @@ css = '''
 }
 .chat-message.user {
     align: right,
-    background-color: #2b313e
+    color: #000000;
+    background-color: #99FFFF;
 }
 .chat-message.bot {
-    background-color: #475063
+    color: #000000;
+    background-color: #D3D3D3;
 }
 .chat-message .avatar {
   width: 20%;
@@ -22,7 +24,7 @@ css = '''
 .chat-message .message {
   width: 80%;
   padding: 0 1.5rem;
-  color: #fff;
+  color: #000000;
 }
 '''
 bot_template = '''
@@ -39,7 +41,7 @@ user_template = '''
     <div class="message" style="text-align:right">{{MSG}}</div>
     <div class="avatar">
         <img src="https://png.pngtree.com/png-vector/20190321/ourmid/pngtree-vector-users-icon-png-image_856952.jpg">
-    </div>    
-    
+    </div>
+
 </div>
 '''
