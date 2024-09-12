@@ -30,7 +30,7 @@ css = '''
 bot_template = '''
 <div class="chat-message bot">
     <div class="avatar">
-        <img src="https://gpte-public.s3.amazonaws.com/CI+Assets/icons_and_logos/chat-user.png" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
+        <img src="https://gpte-public.s3.amazonaws.com/CI+Assets/icons_and_logos/chat-bot.png" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
     </div>
     <div class="message">{{MSG}}</div>
 </div>
@@ -40,7 +40,7 @@ user_template = '''
 <div class="chat-message user">
     <div class="message" style="text-align:right">{{MSG}}</div>
     <div class="avatar">
-        <img src="https://gpte-public.s3.amazonaws.com/CI+Assets/icons_and_logos/chat-bot.png">
+        <img src="https://gpte-public.s3.amazonaws.com/CI+Assets/icons_and_logos/chat-user.png">
     </div>
 
 </div>
