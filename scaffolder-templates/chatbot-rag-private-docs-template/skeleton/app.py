@@ -73,7 +73,7 @@ def get_vectorstore(chunks):
 def get_conversationchain(vectorstore):
     llm = VLLMOpenAI(
         openai_api_key="EMPTY",
-	openai_api_base= f"{INFERENCE_SERVER_URL}/v1",
+	    openai_api_base= f"{INFERENCE_SERVER_URL}/v1",
         model_name=f"{MODEL_NAME}",
         max_tokens=MAX_NEW_TOKENS,
         top_p=TOP_P,
