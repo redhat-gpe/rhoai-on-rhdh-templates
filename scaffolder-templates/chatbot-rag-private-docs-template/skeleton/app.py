@@ -107,7 +107,6 @@ def handle_question(question):
 
 
 def main():
-    # load_dotenv()
     st.set_page_config(page_title="Chat with your PDF documentation",page_icon=":page_facing_up:")
     st.write(css,unsafe_allow_html=True)
     if "conversation" not in st.session_state:
