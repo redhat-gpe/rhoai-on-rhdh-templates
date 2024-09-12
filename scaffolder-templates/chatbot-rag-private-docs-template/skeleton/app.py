@@ -116,7 +116,7 @@ def main():
         st.session_state.chat_history=None
 
     st.header("Chat with your PDF documentation :page_facing_up:")
-    question=st.text_input("Ask a question from your document:")
+    question=st.text_input("Ask a question from your documentation:")
     if question:
         handle_question(question)
     with st.sidebar:
