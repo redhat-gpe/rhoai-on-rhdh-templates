@@ -188,7 +188,7 @@ spec:
           image_tag: {{ '${{ parameters.image_tag }}' }}
           port: 8501
           repository_host: {{ '${{ parameters.repo.host }}' }}
-          deployment_name: quarkus-template
+          deployment_name: python-template
           user: {{ '${{ user.entity.metadata.name }}' }}
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_endpoint: {{ '${{ parameters.model_endpoint }}' }}
