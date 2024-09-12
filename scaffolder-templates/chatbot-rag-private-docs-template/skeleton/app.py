@@ -73,7 +73,7 @@ def get_vectorstore(chunks):
 def get_conversationchain(vectorstore):
     llm = VLLMOpenAI(
         openai_api_key="EMPTY",
-	openai_api_base= f"{INFERENCE_SERVER_URL}/v1",
+        openai_api_base= f"{INFERENCE_SERVER_URL}/v1",
         model_name=f"{MODEL_NAME}",
         max_tokens=MAX_NEW_TOKENS,
         top_p=TOP_P,
@@ -107,8 +107,7 @@ def handle_question(question):
 
 
 def main():
-    # load_dotenv()
-    st.set_page_config(page_title="Chat with multiple PDFs",page_icon=":books:")
+    st.set_page_config(page_title="Chat with your PDF documentation",page_icon=":page_facing_up:")
     st.write(css,unsafe_allow_html=True)
     if "conversation" not in st.session_state:
         st.session_state.conversation=None
@@ -116,8 +115,8 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history=None
 
-    st.header("Chat with multiple PDFs :books:")
-    question=st.text_input("Ask question from your document:")
+    st.header("Chat with your PDF documentation :page_facing_up:")
+    question=st.text_input("Ask a question from your documentation:")
     if question:
         handle_question(question)
     with st.sidebar:
