@@ -20,7 +20,6 @@ spec:
     - title: Provide Information for Application
       required:
         - component_id
-        - java_package_name
       properties:
         component_id:
           title: Name
@@ -29,26 +28,6 @@ spec:
           default: chatbot-app
           ui:field: EntityNamePicker
           maxLength: 23
-        group_id:
-          title: Group Id
-          type: string
-          default: redhat.janus
-          description: Maven Group Id
-        artifact_id:
-          title: Artifact Id
-          type: string
-          default: chatbot-app
-          description: Maven Artifact Id
-        java_package_name:
-          title: Java Package Name
-          default: org.redhat.janus
-          type: string
-          description: Name for the java package. eg (com.redhat.blah)
-        description:
-          title: Description
-          type: string
-          description: Help others understand what this website is for.
-          default: A cool quarkus chatbot app
     - title: Large Language Model
       required:
         - model_endpoint
@@ -157,9 +136,6 @@ spec:
           component_id: {{ '${{ parameters.component_id }}' }}
           description: {{ '${{ parameters.description }}' }}
           namespace: {{ '${{ parameters.component_id }}' }}-dev
-          group_id: {{ '${{ parameters.group_id }}' }}
-          artifact_id: {{ '${{ parameters.artifact_id }}' }}
-          java_package_name: {{ '${{ parameters.java_package_name }}' }}
           owner: {{ '${{ user.entity.metadata.name }}' }}
           cluster: {{ cluster_subdomain }}
           host: {{ '${{ parameters.repo.host }}' }}
