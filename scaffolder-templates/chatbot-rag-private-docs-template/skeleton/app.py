@@ -108,7 +108,7 @@ def handle_question(question):
 
 def main():
     # load_dotenv()
-    st.set_page_config(page_title="Chat with you PDF documentation",page_icon=":books:")
+    st.set_page_config(page_title="Chat with your PDF documentation",page_icon=":books:")
     st.write(css,unsafe_allow_html=True)
     if "conversation" not in st.session_state:
         st.session_state.conversation=None
@@ -116,7 +116,7 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history=None
 
-    st.header("Chat with you PDF documentation :books:")
+    st.header("Chat with your PDF documentation :books:")
     question=st.text_input("Ask a question from your document:")
     if question:
         handle_question(question)
