@@ -27,6 +27,11 @@ spec:
           default: chatbot-app
           ui:field: EntityNamePicker
           maxLength: 23
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this ap is for.
+          default: A cool RAG app
     - title: Model Details
       required:
         - model_name
@@ -135,6 +140,7 @@ spec:
           - .github/workflows/*
         values:
           component_id: {{ '${{ parameters.component_id }}' }}
+          description: {{ '${{ parameters.description }}' }}
           namespace: {{ '${{ parameters.component_id }}' }}-dev
           owner: {{ '${{ user.entity.metadata.name }}' }}
           cluster: {{ cluster_subdomain }}
@@ -168,6 +174,7 @@ spec:
         copyWithoutTemplating: []
         values:
           component_id: {{ '${{ parameters.component_id }}' }}
+          description: {{ '${{ parameters.description }}' }}
           destination: https://{{ '${{ parameters.repo.host }}' }}/{{ '${{ parameters.repo.owner }}' }}/{{ '${{parameters.component_id}}' }}-gitops.git
           source_repository: https://{{ '${{ parameters.repo.host }}' }}/{{ '${{ parameters.repo.owner }}' }}/{{ '${{parameters.component_id}}' }}.git
           repository_name: {{ '${{parameters.component_id}}' }}
