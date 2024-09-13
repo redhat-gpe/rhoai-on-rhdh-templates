@@ -27,22 +27,6 @@ MAX_NEW_TOKENS = 512
 TOP_P = 0.95
 TEMPERATURE = 0.01
 PRESENCE_PENALTY = 1.03
-LOADED = False
-
-def load_pdfs():
-    text=""
-    dirname = os.getcwd() + "/docs/*.pdf"
-    print(dirname)
-    for filename in glob.glob(dirname):
-        print(filename)
-        if (filename.endswith(".pdf")):
-           pdf_file = open(filename, 'rb')
-           pdf_reader = PdfReader(pdf_file)
-           for page in pdf_reader.pages:
-               text+=page.extract_text()
-    text_chunks=get_chunks(text)
-    vectorstore=get_vectorstore(text_chunks)
-    st.session_state.conversation=get_conversationchain(vectorstore)
 
 # extracting text from pdf
 def get_pdf_text(docs):
