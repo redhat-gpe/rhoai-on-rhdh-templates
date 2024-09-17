@@ -48,8 +48,6 @@ spec:
       type: string
     - name: oidc-issuer
       type: string
-    - name: maven-image
-      type: string
   tasks:
     - name: git-clone
       params:
@@ -245,6 +243,5 @@ spec:
       value: "$(tasks.acs-image-scan.results.SCAN_OUTPUT)"
   workspaces:
     - name: source-folder
-    - name: maven-settings
     - name: docker-config
     - name: reports

@@ -3,12 +3,11 @@ kind: Template
 metadata:
   name: chatbot-rag-private-docs-template
   title: Secured Chatbot Chatbot assistant using private documents with RAG
-  description: Creates a secured quarkus application chatbot which enables you to ingest private documents for RAG
+  description: Creates a secured python chatbot which enables you to ingest private documents for RAG
   tags:
     - recommended
     - java
-    - quarkus
-    - maven
+    - python
     - ai
     - rhoai
     - rag

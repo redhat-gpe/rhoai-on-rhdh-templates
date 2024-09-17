@@ -8,7 +8,6 @@ metadata:
     - recommended
     - java
     - python
-    - maven
     - ai
     - rhoai
     - rhtap
