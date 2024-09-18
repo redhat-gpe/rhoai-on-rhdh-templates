@@ -58,8 +58,6 @@ spec:
             value: $(tt.params.git-committer)
           - name: oidc-issuer
             value: https://keycloak-keycloak-system{{ .Values.app.cluster }}/auth/realms/trusted-artifact-signer
-          - name: maven-image
-            value: registry.redhat.io/ubi9/openjdk-21
         pipelineRef:
           name: {{ .Values.app.name }}-build
         serviceAccountName: pipeline
@@ -75,8 +73,6 @@ spec:
                 resources:
                   requests:
                     storage: 15Gi
-          - emptyDir: {}
-            name: maven-settings
 {{- if eq .Values.image.registry "Quay" }}
           - name: docker-config
             secret:
