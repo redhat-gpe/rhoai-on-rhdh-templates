@@ -41,6 +41,7 @@ spec:
           type: string
           enum:
             - parasol-instruct
+            - granite-7b-lab
         rhoai_doc_version:
           title: Red Hat Openshift AI Documentation to Ingest
           type: string
