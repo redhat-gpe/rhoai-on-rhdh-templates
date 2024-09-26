@@ -23,7 +23,11 @@ spec:
         - '--model=/mnt/models'
         - '--served-model-name={{"{{"}}.Name{{"}}"}}'
         - '--distributed-executor-backend=mp'
+{{- if eq .Values.app.model.name "parasol-instruct" }}
         - '--max-model-len=15344'
+{{- else if eq .Values.app.model.name "granite-7b-lab" }}
+        - '--max-model-len=4096'
+{{- end }}
       command:
         - python
         - '-m'
