@@ -12,7 +12,7 @@ import '@vaadin/grid/vaadin-grid-sort-column.js';
 export class DemoTitle extends LitElement {
 
     static styles = css`
-      h1 {
+      h2 {
         font-family: "Red Hat Mono", monospace;
         font-size: 60px;
         font-style: normal;
@@ -27,7 +27,7 @@ export class DemoTitle extends LitElement {
         padding: 1em;
         background: var(--main-bg-color);
       }
-      
+
       .explanation {
         margin-left: auto;
         margin-right: auto;
@@ -35,7 +35,7 @@ export class DemoTitle extends LitElement {
         text-align: justify;
         font-size: 20px;
       }
-      
+
       .explanation img {
         max-width: 60%;
         display: block;
@@ -48,16 +48,15 @@ export class DemoTitle extends LitElement {
     render() {
         return html`
             <div class="title">
-                <h1>AI Buddy</h1>
+                <h2>AI Buddy</h2>
             </div>
             <div class="explanation">
-
+                <p>Welcome!</p>
+                <p>Please click the button on the bottom right to start the conversation
+                with an LLM-powered helper.</p>
             </div>
-          
-            
         `
     }
-
 
 }
 

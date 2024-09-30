@@ -13,6 +13,7 @@ import org.mvnpm.importmap.Aggregator;
 @ApplicationScoped
 @Path("/_importmap")
 public class ImportmapResource {
+
     private String importmap;
 
     // See https://github.com/WICG/import-maps/issues/235

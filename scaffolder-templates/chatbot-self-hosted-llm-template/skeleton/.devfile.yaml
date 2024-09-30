@@ -25,7 +25,7 @@ components:
           exposure: public
           secure: false
           protocol: https
-          path: /
+          path: hello
         - name: debug
           targetPort: 5005
           exposure: none
@@ -141,7 +141,7 @@ commands:
   - id: init-gitsign
     exec:
       label: "Initialize gitsign"
-      component: py
+      component: development-tooling
       workingDir: /home/user
       commandLine: |
         git config --global user.email '${{values.owner}}@opentlc.com'
