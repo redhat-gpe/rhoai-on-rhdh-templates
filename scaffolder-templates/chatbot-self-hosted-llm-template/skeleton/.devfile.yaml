@@ -4,7 +4,7 @@ metadata:
 components:
   - name: development-tooling
     container:
-      image: quay.io/devfile/universal-developer-image:ubi8-8fca167
+      image: quay.io/devfile/universal-developer-image:ubi8-277c10c
       env:
         - name: QUARKUS_HTTP_HOST
           value: 0.0.0.0
@@ -25,7 +25,7 @@ components:
           exposure: public
           secure: false
           protocol: https
-          path: /
+          path: hello
         - name: debug
           targetPort: 5005
           exposure: none
