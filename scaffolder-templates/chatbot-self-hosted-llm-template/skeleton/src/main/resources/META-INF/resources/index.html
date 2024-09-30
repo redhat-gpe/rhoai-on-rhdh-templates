@@ -16,12 +16,12 @@
 
     <link rel="stylesheet" href="fonts/red-hat-font.min.css">
 
-    <title>ChatBot</title>
+    <title>AI Chatbot</title>
 
     <style>
         :root {
-            --main-bg-color: hsla(0, 0%, 100%, 0.21);
-            --main-highlight-text-color: #e13245;
+            --main-bg-color: rgb(246, 242, 242);
+            --main-highlight-text-color: rgba(237, 98, 128);
         }
 
         body {
@@ -38,13 +38,22 @@
         }
 
         chat-bot {
-            --chatbot-avatar-bg-color: var(--main-highlight-text-color);
+            --chatbot-avatar-bg-color: rgba(237, 98, 128);
             --chatbot-avatar-margin: 10%;
-            --chatbot-header-bg-color: var(--main-highlight-text-color);;
+            --chatbot-header-bg-color: rgba(237, 98, 128);
             --chatbot-header-title-color: #FFFFFF;
             --chatbot-body-bg-color: var(--main-bg-color);
-            --chatbot-send-button-color: var(--main-highlight-text-color);;
+            --chatbot-send-button-color: rgba(237, 98, 128);
         }
+
+         chat-bot::part(chat-bubble) {
+             --chat-bubble-avatar-color: rgba(237, 98, 128);
+             --chat-bubble-color: rgba(203, 232, 237, 0.71);
+             --chat-bubble-right-color: rgb(157, 238, 244);
+             --chat-bubble-font-color: #333;
+             --chat-bubble-font-right-color: #333;
+             --chat-bubble-delay: 0.2s;
+         }
 
         .middle {
             margin-top: 2em;
