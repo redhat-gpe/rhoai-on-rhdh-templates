@@ -26,7 +26,7 @@ spec:
   ignoreDifferences:
     - group: '*'
       jqPathExpressions:
-        - '.imagePullSecrets[] | select(.name|test(".-dockercfg-."))'
+        - '.imagePullSecrets[] | select(.name | contains("-dockercfg-"))'
       kind: ServiceAccount
   syncPolicy:
     automated:
@@ -34,7 +34,6 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
-    - RespectIgnoreDifferences=true
     - ApplyOutOfSyncOnly=true
     retry:
       limit: -1
