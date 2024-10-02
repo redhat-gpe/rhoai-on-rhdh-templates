@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.app.name }}-anyuid
   namespace: {{ .Values.app.namespace }}
   annotations:
-    argocd.argoproj.io/sync-wave: '1'
+    argocd.argoproj.io/sync-wave: '-4'
 subjects:
   - kind: ServiceAccount
     name: {{ .Values.app.name }}

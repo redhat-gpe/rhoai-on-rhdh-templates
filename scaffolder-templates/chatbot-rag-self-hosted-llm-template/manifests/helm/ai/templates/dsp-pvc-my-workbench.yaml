@@ -6,7 +6,7 @@ metadata:
     openshift.io/display-name: My Workbench
     volume.beta.kubernetes.io/storage-provisioner: openshift-storage.rbd.csi.ceph.com
     volume.kubernetes.io/storage-provisioner: openshift-storage.rbd.csi.ceph.com
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "-2"
   name: {{ .Values.app.workbench.name }}
   namespace: {{ .Values.app.namespace }}
   finalizers:

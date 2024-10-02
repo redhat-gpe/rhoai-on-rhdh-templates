@@ -26,14 +26,13 @@ spec:
   ignoreDifferences:
     - group: '*'
       jqPathExpressions:
-        - '.imagePullSecrets[] | select(.name|test(".-dockercfg-."))'
+        - '.imagePullSecrets[] | select(.name | contains("-dockercfg-"))'
       kind: ServiceAccount
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - RespectIgnoreDifferences=true
     - ApplyOutOfSyncOnly=true
     retry:
       limit: -1

@@ -4,4 +4,4 @@ metadata:
   name: project-creator
   namespace: {{ .Values.app.namespace }}
   annotations:
-    argocd.argoproj.io/sync-wave: '0'
+    argocd.argoproj.io/sync-wave: '-4'
