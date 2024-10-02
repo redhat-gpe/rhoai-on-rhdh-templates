@@ -3,7 +3,7 @@ kind: ClusterRoleBinding
 metadata:
   name: project-creator-binding-{{ .Values.app.name }}
   annotations:
-    argocd.argoproj.io/sync-wave: '0'
+    argocd.argoproj.io/sync-wave: '-4'
 subjects:
 - kind: ServiceAccount
   name: project-creator
