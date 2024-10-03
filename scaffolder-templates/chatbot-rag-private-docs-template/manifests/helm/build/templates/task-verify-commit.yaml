@@ -11,7 +11,7 @@ spec:
   - description: Email address of committer
     name: certificate-identity
     type: string
-    default: user1@opentlc.com
+    default: user1@demo.redhat.com
   - description: OIDC issuer
     name: oidc-issuer
     type: string
