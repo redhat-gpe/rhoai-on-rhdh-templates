@@ -32,7 +32,7 @@ spec:
       type: string
   steps:
   - script: |
-      git config --global user.email "root@opentlc.com"
+      git config --global user.email "root@demo.redhat.com"
 
       git config --global user.name "Administrator"
 
