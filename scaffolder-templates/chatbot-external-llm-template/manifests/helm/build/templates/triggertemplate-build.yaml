@@ -57,7 +57,7 @@ spec:
           - name: certificate-identity
             value: $(tt.params.git-committer)
           - name: oidc-issuer
-            value: https://keycloak-rhsso{{ .Values.app.cluster }}/auth/realms/trusted-artifact-signer
+            value: https://keycloak-rhsso{{ .Values.app.cluster }}/auth/realms/openshift
           - name: maven-image
             value: registry.redhat.io/ubi9/openjdk-21
         pipelineRef:
