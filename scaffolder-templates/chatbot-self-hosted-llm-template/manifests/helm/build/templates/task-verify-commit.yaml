@@ -15,7 +15,7 @@ spec:
   - description: OIDC issuer
     name: oidc-issuer
     type: string
-    default: https://keycloak-keycloak-system.apps.cluster-v42rv.sandbox795.opentlc.com/auth/realms/sigstore
+    default: https://keycloak-rhsso.apps.cluster-v42rv.sandbox795.opentlc.com/auth/realms/sigstore
   - description: Rekor URL
     name: rekor-url
     type: string

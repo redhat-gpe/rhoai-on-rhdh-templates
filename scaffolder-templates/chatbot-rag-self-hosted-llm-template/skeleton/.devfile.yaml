@@ -151,7 +151,7 @@ commands:
         git config --global gpg.x509.program /projects/home/bin/gitsign
         git config --global gpg.format x509
         git config --global gitsign.fulcio https://fulcio-server-trusted-artifact-signer${{values.cluster}}
-        git config --global gitsign.issuer https://keycloak-keycloak-system${{values.cluster}}/auth/realms/trusted-artifact-signer
+        git config --global gitsign.issuer https://keycloak-rhsso${{values.cluster}}/auth/realms/trusted-artifact-signer
         git config --global gitsign.rekor https://rekor-server-trusted-artifact-signer${{values.cluster}}
         git config --global gitsign.clientid trusted-artifact-signer
       group:

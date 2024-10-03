@@ -47,7 +47,7 @@ data:
         - name: certificate-identity
           value: $(tt.params.git-committer)
         - name: oidc-issuer
-          value: https://keycloak-keycloak-system{{ .Values.app.cluster }}/auth/realms/trusted-artifact-signer
+          value: https://keycloak-rhsso{{ .Values.app.cluster }}/auth/realms/trusted-artifact-signer
       pipelineRef:
         name: {{ .Values.app.name }}-build
       serviceAccountName: pipeline
