@@ -27,6 +27,8 @@ spec:
         - '--max-model-len=15344'
 {{- else if eq .Values.app.model.name "granite-7b-lab" }}
         - '--max-model-len=4096'
+{{- else }}
+        - '--max-model-len=4096'
 {{- end }}
       command:
         - python
