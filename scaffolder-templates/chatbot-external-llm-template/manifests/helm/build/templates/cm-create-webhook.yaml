@@ -9,7 +9,7 @@ data:
         git_host: {{ .Values.git.host }}
         git_project: {{ .Values.app.name }}
         git_token: {{ .Values.git.token }}
-        webhook_url: https://webhook-{{ .Values.app.name }}-el-{{ .Values.app.namespace }}{{ .Values.app.cluster }}
+        webhook_url: https://webhook-{{ .Values.app.name }}{{ .Values.app.cluster }}
         webhook_secret: {{ .Values.git.webhookSecret }}
       tasks:
         - name: Get gitlab projects
