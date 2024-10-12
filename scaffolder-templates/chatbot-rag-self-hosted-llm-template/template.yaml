@@ -31,7 +31,7 @@ spec:
           type: string
           description: Help others understand what this ap is for.
           default: A cool RAG app
-    - title:  Model Details
+    - title: Model Details
       required:
         - model_name
         - model_max_length
