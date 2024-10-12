@@ -48,6 +48,7 @@ spec:
     - title: Large Language Model
       required:
         - model_name
+        - model_max_length
       properties:
         model_name:
           title: Model Name
@@ -55,6 +56,11 @@ spec:
           enum:
             - parasol-instruct
             - granite-7b-lab
+        model_max_length:
+          title: Max model length
+          default: "4096"
+          type: string
+          description: The maximum length for this model
     - title: Provide Image Registry Information
       required:
         - image_registry
@@ -156,6 +162,7 @@ spec:
           port: 8080
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
+          model_max_length: {{ '${{ parameters.model_max_length }}' }}
 
     - id: publish
       name: Publish
@@ -197,6 +204,7 @@ spec:
           user: {{ '${{ user.entity.metadata.name }}' }}
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
+          model_max_length: {{ '${{ parameters.model_max_length }}' }}
         targetPath: ./tenant-gitops
 
     - id: publish-gitops

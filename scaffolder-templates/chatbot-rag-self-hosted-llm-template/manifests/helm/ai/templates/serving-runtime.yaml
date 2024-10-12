@@ -23,7 +23,7 @@ spec:
         - '--model=/mnt/models'
         - '--served-model-name={{"{{"}}.Name{{"}}"}}'
         - '--distributed-executor-backend=mp'
-        - '--max-model-len=4096'
+        - '--max-model-len={{ .Values.app.model.maxLength }}'
       command:
         - python
         - '-m'
