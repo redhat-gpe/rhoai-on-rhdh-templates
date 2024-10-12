@@ -34,6 +34,7 @@ spec:
     - title: Model Details
       required:
         - model_name
+        - model_max_length
         - rhoai_doc_version
       properties:
         model_name:
@@ -42,6 +43,11 @@ spec:
           enum:
             - parasol-instruct
             - granite-7b-lab
+        model_max_length:
+          title: Max model length
+          default: "4096"
+          type: string
+          description: The maximum length for this model
         rhoai_doc_version:
           title: Red Hat Openshift AI Documentation to Ingest
           type: string
@@ -150,6 +156,7 @@ spec:
           port: 7860
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
+          model_max_length: {{ '${{ parameters.model_max_length }}' }}
           rhoai_doc_version: {{ '${{ parameters.rhoai_doc_version }}' }}
 
     - id: publish
@@ -192,6 +199,7 @@ spec:
           user: {{ '${{ user.entity.metadata.name }}' }}
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
+          model_max_length: {{ '${{ parameters.model_max_length }}' }}
           rhoai_doc_version: {{ '${{ parameters.rhoai_doc_version }}' }}
         targetPath: ./tenant-gitops
 
