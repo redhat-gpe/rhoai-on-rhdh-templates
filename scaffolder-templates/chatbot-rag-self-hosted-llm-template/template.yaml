@@ -41,7 +41,7 @@ spec:
           title: Model Name
           type: string
           enum:
-            - mistral-7b-instruct-v02
+            - mistral-7b-instruct-v03
             - granite-7b-lab
         model_max_length:
           title: Max model length
