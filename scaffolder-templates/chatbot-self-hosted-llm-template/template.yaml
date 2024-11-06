@@ -54,7 +54,7 @@ spec:
           title: Model Name
           type: string
           enum:
-            - parasol-instruct
+            - mistral-7b-instruct-v03
             - granite-7b-lab
         model_max_length:
           title: Max model length
