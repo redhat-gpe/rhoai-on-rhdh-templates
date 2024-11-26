@@ -42,7 +42,7 @@ spec:
           type: string
           enum:
             - mistral-7b-instruct-v03
-            - granite-7b-lab
+            - granite-3.0-8b-instruct
         model_max_length:
           title: Max model length
           default: "4096"
