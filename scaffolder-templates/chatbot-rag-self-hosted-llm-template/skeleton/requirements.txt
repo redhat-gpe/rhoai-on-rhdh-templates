@@ -85,8 +85,8 @@ text-generation==0.6.1; python_version >= '3.7' and python_version < '4.0'
 threadpoolctl==3.2.0; python_version >= '3.8'
 tokenizers==0.15.0; python_version >= '3.7'
 toolz==0.12.0; python_version >= '3.5'
-torch==2.0.1+cu118
-torchvision==0.15.2+cu118
+torch==2.0.1
+torchvision==0.15.2
 tqdm==4.66.1; python_version >= '3.7'
 transformers==4.35.2; python_full_version >= '3.8.0'
 triton==2.0.0; platform_system == 'Linux' and platform_machine == 'x86_64'
