@@ -29,10 +29,13 @@ spec:
   - image: alpine/git:latest
     name: git-verify
     script: |
-      apk add rpm cosign
-      rm -f gitsign_0.7.1_linux_amd64.rpm
-      wget -q https://github.com/sigstore/gitsign/releases/download/v0.7.1/gitsign_0.7.1_linux_amd64.rpm
-      rpm -ivh gitsign_0.7.1_linux_amd64.rpm
+      apk add rpm
+      wget "https://github.com/sigstore/cosign/releases/download/v2.4.1/cosign-linux-amd64"
+      mv cosign-linux-amd64 /usr/local/bin/cosign
+      chmod +x /usr/local/bin/cosign
+      rm -f gitsign_0.11.0_linux_amd64.rpm
+      wget -q https://github.com/sigstore/gitsign/releases/download/v0.11.0/gitsign_0.11.0_linux_amd64.rpm
+      rpm -ivh gitsign_0.11.0_linux_amd64.rpm
       git config --global --add safe.directory /workspace/repository
       cosign initialize --mirror=$(params.tuf-mirror) --root=$(params.tuf-mirror)/root.json
       git show -s
