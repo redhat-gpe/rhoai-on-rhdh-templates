@@ -68,11 +68,11 @@ spec:
                   type: string
                   description: Registry image to use for the model
                   default: registry.redhat.io/rhelai1/modelcar-granite-8b-code-instruct:latest
-        model_max_length:
-          title: Max model length
-          default: "4096"
-          type: string
-          description: The maximum length for this model
+                model_max_length:
+                  title: Max model length
+                  default: "4096"
+                  type: string
+                  description: The maximum length for this model
     - title: Provide Image Registry Information
       required:
         - image_registry
