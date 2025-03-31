@@ -56,18 +56,18 @@ spec:
           default: granite-8b-code-instruct
           enum:
             - granite-8b-code-instruct
-        dependencies:
-          model_name:
-            oneOf:
-              - properties:
-                  model_name:
-                    enum:
-                      - granite-8b-code-instruct
-                  model_image:
-                    title: Model Image
-                    type: string
-                    description: Registry image to use for the model
-                    default: registry.redhat.io/rhelai1/modelcar-granite-8b-code-instruct:latest
+      dependencies:
+        model_name:
+          oneOf:
+            - properties:
+                model_name:
+                  enum:
+                    - granite-8b-code-instruct
+                model_image:
+                  title: Model Image
+                  type: string
+                  description: Registry image to use for the model
+                  default: registry.redhat.io/rhelai1/modelcar-granite-8b-code-instruct:latest
         model_max_length:
           title: Max model length
           default: "4096"
