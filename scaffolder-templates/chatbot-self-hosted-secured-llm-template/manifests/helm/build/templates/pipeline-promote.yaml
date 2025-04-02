@@ -70,6 +70,19 @@ spec:
       taskRef:
         kind: Task
         name: verify-enterprise-contract
+    - name: verify-model
+      params:
+        - name: git_host
+          value: '$(params.git-host)'
+        - name: git_owner
+          value: '$(params.git-owner)'
+        - name: component_id
+          value: {{ .Values.app.name }}
+        - name: git_repository_revision
+          value: 'master'
+      taskRef:
+        kind: Task
+        name: verify-model
     - name: quay-tag-promote
       params:
         - name: srcImageURL
@@ -85,6 +98,7 @@ spec:
         name: skopeo-copy
       runAfter:
         - verify-enterprise-contract
+        - verify-model
       workspaces:
         - name: images-url
           workspace: images-url
