@@ -87,7 +87,7 @@ spec:
               exclude: []
         EOF
 
-        SIGSTORE_REKOR_PUBLIC_KEY=./rekor.pub ec validate input --file=input.yaml --policy=policy.yaml --output=yaml --show-successes
+        SIGSTORE_REKOR_PUBLIC_KEY=./rekor.pub ec validate input --file=input.yaml --policy=policy.yaml --output=yaml --info=true --show-successes
       workingDir: /workspace
       volumeMounts:
         - mountPath: /.docker
