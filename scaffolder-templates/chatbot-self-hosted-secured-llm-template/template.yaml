@@ -67,7 +67,7 @@ spec:
                   title: Model Image
                   type: string
                   description: Registry image to use for the model
-                  default: registry.redhat.io/rhelai1/modelcar-granite-8b-code-instruct:latest
+                  default: registry.redhat.io/rhelai1/modelcar-granite-8b-code-instruct@sha256:e23eafe347ecdcaf219da6b573f3ef9f526f86543f7bad8e7d3329b36f0bc631
                 model_max_length:
                   title: Max model length
                   default: "4096"
