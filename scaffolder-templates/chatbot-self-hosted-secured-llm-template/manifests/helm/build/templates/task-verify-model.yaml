@@ -79,8 +79,8 @@ spec:
         cat <<EOF > policy.yaml
         sources:
           - policy:
-              - github.com/lcarva/ec-policies//policy/lib?ref=inferenceservice
-              - github.com/lcarva/ec-policies//policy/resource?ref=inferenceservice
+              - github.com/rhpds/inference-service-ec-policies//policy/lib?ref=inferenceservice
+              - github.com/rhpds/inference-service-ec-policies//policy/resource?ref=inferenceservice
             config:
               include:
                 - inferenceservice
