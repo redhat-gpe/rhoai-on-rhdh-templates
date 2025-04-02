@@ -1,0 +1,94 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: verify-model
+spec:
+  description: >-
+    Verifies a model's signature
+  params:
+    - name: git_host
+      type: string
+    - name: git_owner
+      type: string
+    - description: The name of the component
+      name: component_id
+      type: string
+    - name: git_repository_revision
+      type: string
+
+  volumes:
+    - name: docker-config
+      secret:
+        secretName: tas-docker-config
+        items:
+        - key: config.json
+          path: config.json
+    - emptyDir: {}
+      name: repository
+
+  steps:
+    - image: 'quay.io/redhat-gpte/alpine-git:latest'
+      env:
+      - name: COMMON_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: password
+            name: common-password-secret
+      name: git-checkout
+      resources: {}
+      script: |
+        #!/usr/bin/env sh
+
+        set -eu -o pipefail
+
+        git clone https://root:$COMMON_PASSWORD@$(params.git_host)/$(params.git_owner)/$(params.component_id)-gitops repository
+
+        cd repository
+
+        git checkout "$(params.git_repository_revision)"
+      volumeMounts:
+        - mountPath: /workspace/repository
+          name: repository
+      workingDir: /workspace
+    - image: alpine/helm:3.11.1
+      name: helm-template
+      resources: {}
+      script: |
+        #!/usr/bin/env sh
+
+        set -eu -o pipefail
+
+        helm template repository/helm/ai > input.yaml
+      volumeMounts:
+        - mountPath: /workspace/repository
+          name: repository
+      workingDir: /workspace
+    - name: verify-model
+      image: registry.redhat.io/rhtas/ec-rhel9:0.6
+      script: |-
+        set -euo pipefail
+
+        cat <<EOF > rekor.pub
+        -----BEGIN PUBLIC KEY-----
+        MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAENqXXmPchbztil/PU0uGBh4xYJkterHN0
+        Yz/o/cXw2hmmr6WAjq0FIEilS5nlDM9La+RcBts4xekrPBKBn37thbYuCoxEH39U
+        gmagLaBS92UAhZty93CXgXMy89h5pJFZ
+        -----END PUBLIC KEY-----
+        EOF
+
+        cat <<EOF > policy.yaml
+        sources:
+          - policy:
+              - github.com/lcarva/ec-policies//policy/lib?ref=inferenceservice
+              - github.com/lcarva/ec-policies//policy/resource?ref=inferenceservice
+            config:
+              include:
+                - inferenceservice
+              exclude: []
+        EOF
+
+        SIGSTORE_REKOR_PUBLIC_KEY=./rekor.pub ec validate input --file=input.yaml --policy=policy.yaml --output=yaml
+      workingDir: /workspace
+      volumeMounts:
+        - mountPath: /.docker
+          name: docker-config

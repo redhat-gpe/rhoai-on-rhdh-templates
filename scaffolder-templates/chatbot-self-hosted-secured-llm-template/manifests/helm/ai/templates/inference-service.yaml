@@ -1,0 +1,39 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    serving.knative.openshift.io/enablePassthrough: 'true'
+    sidecar.istio.io/inject: 'true'
+    sidecar.istio.io/rewriteAppHTTPProbers: 'true'
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
+    openshift.io/display-name: {{ .Values.app.model.name }}
+    serving.kserve.io/deploymentMode: RawDeployment
+    argocd.argoproj.io/sync-wave: "-1"
+  name: {{ .Values.app.model.name }}
+  namespace: {{ .Values.app.namespace }}
+  labels:
+    opendatahub.io/dashboard: 'true'
+spec:
+  predictor:
+    maxReplicas: 1
+    minReplicas: 1
+    model:
+      modelFormat:
+        name: vLLM
+      name: ''
+      resources:
+        limits:
+          cpu: '8'
+          memory: 24Gi
+          nvidia.com/gpu: '1'
+        requests:
+          cpu: 200m
+          memory: 16Gi
+          nvidia.com/gpu: '1'
+      runtime: llm
+      storageUri: oci://{{ .Values.app.model.image }}
+    tolerations:
+      - effect: NoSchedule
+        key: nvidia.com/gpu
+        operator: Exists
