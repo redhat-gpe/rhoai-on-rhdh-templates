@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: chatbot-self-hosted-secured-llm-template
-  title: Secured Chatbot with a Self-Hosted Secured Large Language Model (LLM)
+  title: LLM with model signature validation
   description: Creates a secured quarkus application chatbot provisioning and inferencing a self-hosted secured LLM
   tags:
     - recommended

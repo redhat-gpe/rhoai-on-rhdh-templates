@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: chatbot-rag-private-docs-template
-  title: Secured Chatbot Chatbot assistant using private documents with RAG
+  title: Chat with private docs using RAG
   description: Creates a secured python chatbot which enables you to ingest private documents for RAG
   tags:
     - recommended
