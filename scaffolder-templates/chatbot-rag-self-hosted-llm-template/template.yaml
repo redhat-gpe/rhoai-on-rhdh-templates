@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: chatbot-rag-self-hosted-llm-template
-  title: Secured Document Chatbot assistant using RAG
+  title: RAG: Ingestion Pipeline
   description: Chat with your documentation using LLM and RAG.
   tags:
     - recommended
