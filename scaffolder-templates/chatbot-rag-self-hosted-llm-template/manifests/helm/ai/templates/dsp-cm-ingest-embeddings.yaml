@@ -6,7 +6,7 @@ metadata:
 apiVersion: v1
 data:
   initialize-embeddings.sh: |
-    pip install langchain langchain_huggingface tqdm langchain_community pypdf
+    pip install langchain langchain_huggingface tqdm langchain_community pypdf sentence_transformers
     cp /opt/app-root/embeddings/ingest-embeddings.ipynb /opt/app-root/src
     jupyter nbconvert --to python ingest-embeddings.ipynb
     ipython ingest-embeddings.py
