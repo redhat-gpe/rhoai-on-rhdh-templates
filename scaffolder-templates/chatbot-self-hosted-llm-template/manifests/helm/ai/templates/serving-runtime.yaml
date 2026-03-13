@@ -31,7 +31,7 @@ spec:
       env:
         - name: HF_HOME
           value: /tmp/hf_home
-      image: 'quay.io/modh/vllm:rhoai-2.16-cuda'
+      image: 'quay.io/modh/vllm:rhoai-2.16-cuda-99fa7014cb9d96d4c64efcf504526d6cadbc400c'
       name: kserve-container
       ports:
         - containerPort: 8080
