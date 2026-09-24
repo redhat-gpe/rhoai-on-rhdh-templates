@@ -23,7 +23,7 @@ spec:
               pip install awscli
 
               # Install MinIO Client (mc)
-              curl -O https://dl.min.io/client/mc/release/linux-amd64/mc
+              curl -o mc https://github.com/minio/mc/releases/download/RELEASE.2025-08-13T08-35-41Z/mc.linux-amd64.RELEASE.2025-08-13T08-35-41Z
               chmod +x mc
 
               # Set up Bucket credentials
